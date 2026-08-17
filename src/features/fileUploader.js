@@ -1,13 +1,22 @@
-document.getElementById("fileInput").addEventListener("change", function(event) {
-    const file = event.target.files[0];
-    if (!file) return;
+async function uploadFile() {
+    const fileInput = document.getElementById('fileInput');
+    const file = fileInput.files[0];
 
-    const reader = new FileReader();
+    let output = document.getElementById('fileOutput');
+    if (!file) {
+        output.innerText = "No file attached!";
+        return;
+    } 
 
-    reader.onload = function(e) {
-        const text = e.target.result;
-        console.log("File content:", text);
-    };
+    const text = await readFileAsText(file);
+    output.innerText = text;
+}
 
-    reader.readAsText(file);
-});
+async function readFileAsText(file) {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = e => resolve(e.target.result);
+        reader.onerror = reject;
+        reader.readAsText(file);
+    });
+}
