@@ -1,0 +1,13 @@
+document.getElementById("fileInput").addEventListener("change", function(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+
+    reader.onload = function(e) {
+        const text = e.target.result;
+        console.log("File content:", text);
+    };
+
+    reader.readAsText(file);
+});
