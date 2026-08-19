@@ -1,4 +1,4 @@
-const { lineDivider, wordDivider } = require('../features/textParser');
+import { lineDivider, wordDivider } from '../../src/features/textParser.js';
 
 let twoLines = `this is 
 a sample`;

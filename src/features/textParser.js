@@ -23,7 +23,4 @@ function wordDivider(word) {
             .filter(n => n.length > 0);
 } 
 
-module.exports = {
-    lineDivider,
-    wordDivider
-};
+export { lineDivider, wordDivider };
