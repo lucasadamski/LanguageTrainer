@@ -1,3 +1,5 @@
+let wholeText;
+
 async function uploadFile() {
     const fileInput = document.getElementById('fileInput');
     const file = fileInput.files[0];
@@ -10,7 +12,10 @@ async function uploadFile() {
 
     const text = await readFileAsText(file);
     output.innerText = text;
+    wholeText = text;
 }
+
+
 
 async function readFileAsText(file) {
     return new Promise((resolve, reject) => {
@@ -20,3 +25,10 @@ async function readFileAsText(file) {
         reader.readAsText(file);
     });
 }
+
+function sum(a, b) {
+    return a + b;
+}
+
+module.exports = sum;
+
