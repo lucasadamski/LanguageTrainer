@@ -18,9 +18,15 @@ function wordDivider(word) {
         result[0] = word;
     }
 
-    return result
+    result = result
             .map(n => n.trim())
             .filter(n => n.length > 0);
+
+    if(result.length != 2 || result.some(n => n === undefined)) {
+        return undefined;
+    }
+
+    return result;
 } 
 
 

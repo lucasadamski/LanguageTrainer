@@ -49,8 +49,7 @@ test(word3, () => {
 let word4 = '; tam'; 
 test(word4, () => {
   let result = wordDivider(word4);
-  expect(result[0]).toBe('tam');
-  expect(result.length).toBe(1);
+   expect(result).toBe(undefined);
 })
 
 let word5 = 'cos,tam'; 
@@ -60,3 +59,17 @@ test(word5, () => {
   expect(result[1]).toBe('tam');
   expect(result.length).toBe(2);
 })
+
+let word6 = 'cos;tam;cos;tam;'; 
+test(word6, () => {
+  let result = wordDivider(word6);
+  expect(result).toBe(undefined);
+})
+
+let word7 = ' - cos'; 
+test(word7, () => {
+  let result = wordDivider(word7);
+  expect(result).toBe(undefined);
+})
+
+
