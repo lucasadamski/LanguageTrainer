@@ -1,5 +1,3 @@
-let wholeText;
-
 async function uploadFile() {
     const fileInput = document.getElementById('fileInput');
     const file = fileInput.files[0];
@@ -12,7 +10,7 @@ async function uploadFile() {
 
     const text = await readFileAsText(file);
     output.innerText = text;
-    wholeText = text;
+    return text;
 }
 
 

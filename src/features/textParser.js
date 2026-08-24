@@ -1,5 +1,5 @@
 function lineDivider(text) {
-    const lines = text.split('\n')
+    const lines = text.split('\n');
     return lines;
 }
 
@@ -22,5 +22,7 @@ function wordDivider(word) {
             .map(n => n.trim())
             .filter(n => n.length > 0);
 } 
+
+
 
 export { lineDivider, wordDivider };
