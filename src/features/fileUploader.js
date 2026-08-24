@@ -1,19 +1,10 @@
 async function uploadFile() {
     const fileInput = document.getElementById('fileInput');
     const file = fileInput.files[0];
-
-    let output = document.getElementById('fileOutput');
-    if (!file) {
-        output.innerText = "No file attached!";
-        return;
-    } 
-
+    if (!file)  return null;
     const text = await readFileAsText(file);
-    output.innerText = text;
     return text;
 }
-
-
 
 async function readFileAsText(file) {
     return new Promise((resolve, reject) => {

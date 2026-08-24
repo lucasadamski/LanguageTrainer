@@ -1,5 +1,6 @@
 import { lineDivider, wordDivider } from './textParser.js';
 import { sum,  uploadFile, readFileAsText } from './fileUploader.js';
+import { drawList } from './output.js';
 
 window.onClickUploadFile = onClickUploadFile;
 
@@ -17,14 +18,16 @@ async function onClickUploadFile() {
     let collectionOfLines = lineDivider(fileContent);
     let collectionOfTranslations = collectionOfLines.map(line => {
         let separatedLine = wordDivider(line);
+        if(separatedLine === undefined) return null;
         return {
             word: separatedLine[0],
             definition: separatedLine[1]
         };
     })
+    .filter(n => n !== null);
 
-    debugger;
-    console.log(collectionOfLines);
-    
+    let output = document.getElementById('fileOutput');
+    drawList(collectionOfTranslations, output);
+
 
 }
