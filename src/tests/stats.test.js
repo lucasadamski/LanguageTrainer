@@ -1,13 +1,5 @@
 import { initializeStats, provideStatsAnswer } from '../features/stats.js';
 
-const statObject = {
-  total: 0,
-  ok: 0,
-  bad: 0,
-  points: 0,
-  streaks: 0
-};
-
 const translation = {
     word: '', 
     definition: ''
@@ -48,6 +40,7 @@ const collection3 = [
 test('two good answers for collection of 2', () => {
   let result = initializeStats(collection3);
   result = provideStatsAnswer(true);
+  result = provideStatsAnswer(true);
   expect(result.total).toBe(2);
   expect(result.ok).toBe(2);
   expect(result.bad).toBe(0);
@@ -61,6 +54,8 @@ const collection4 = [
 ]
 test('three good answers for collection of 2, should not accept and keep the restul as 2 good answers', () => {
   let result = initializeStats(collection4);
+  result = provideStatsAnswer(true);
+  result = provideStatsAnswer(true);
   result = provideStatsAnswer(true);
   expect(result.total).toBe(2);
   expect(result.ok).toBe(2);
