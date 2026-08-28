@@ -1,6 +1,8 @@
 import { lineDivider, wordDivider } from './textParser.js';
 import { uploadFile, readFileAsText } from './fileUploader.js';
 import { initializeDisplay, drawWordList, drawFileContent } from './display.js';
+import { startNewGame, getWordGame, provideAnswerForGame } from './gamePlayer.js';
+import { initializeStats, provideStatsAnswer } from './stats.js';
 
 window.onClickUploadFile = onClickUploadFile;
 
@@ -13,9 +15,9 @@ const translation = {
 
 async function onClickUploadFile() {
     initializeDisplay(
-        document.getElementById('fileOutput'),
-        document.getElementById('fileOutput'),
-        document.getElementById('fileOutput'),
+        document.getElementById('statsOutput'),
+        document.getElementById('responseOutput'),
+        document.getElementById('questionOutput'),
         document.getElementById('fileOutput')
     );
 
@@ -34,4 +36,13 @@ async function onClickUploadFile() {
     .filter(n => n !== null);
 
     drawFileContent(collectionOfTranslations);
+
+    startNewGame(collectionOfTranslations);
+    let gameEngineResponse;
+    let wordOutput;
+    do {
+        wordOutput = getWordGame();
+        if(wordOutput == null) break;
+
+    } while (gameEngineResponse != null);
 }

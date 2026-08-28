@@ -1,13 +1,13 @@
 let statsOut;
 let answerOut; 
-let wordListOut; 
+let questionOut; 
 let fileOut;
 
 
-function initializeDisplay(statsElement, answerElement, wordListElement, fileListElement) {
+function initializeDisplay(statsElement, answerElement, questionElement, fileListElement) {
     statsOut = statsElement;
     answerOut = answerElement;
-    wordListOut = wordListElement; 
+    questionOut = questionElement; 
     fileOut = fileListElement;
 }
 

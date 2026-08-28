@@ -2,6 +2,7 @@ let wordBank = [{word: '', definition: ''}];
 let iterator; 
 let length; 
 let gameOver = false;
+let response = {data: '', gameOver: ''};
 
 function startNewGame(collection) {
     wordBank = collection;
