@@ -1,6 +1,6 @@
 import { lineDivider, wordDivider } from './textParser.js';
 import { sum,  uploadFile, readFileAsText } from './fileUploader.js';
-import { drawList } from './output.js';
+import { initializeDisplay, drawWordList, drawFileContent } from './display.js';
 
 window.onClickUploadFile = onClickUploadFile;
 
@@ -11,8 +11,15 @@ const translation = {
     definition: ''
 }
 
-
 async function onClickUploadFile() {
+    initializeDisplay(
+        document.getElementById('fileOutput'),
+        document.getElementById('fileOutput'),
+        document.getElementById('fileOutput'),
+        document.getElementById('fileOutput')
+    );
+
+
     fileContent = await uploadFile();
 
     let collectionOfLines = lineDivider(fileContent);
@@ -26,8 +33,5 @@ async function onClickUploadFile() {
     })
     .filter(n => n !== null);
 
-    let output = document.getElementById('fileOutput');
-    drawList(collectionOfTranslations, output);
-
-
+    drawFileContent(collectionOfTranslations);
 }
