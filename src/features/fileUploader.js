@@ -15,9 +15,5 @@ async function readFileAsText(file) {
     });
 }
 
-function sum(a, b) {
-    return a + b;
-}
-
-export { sum, uploadFile, readFileAsText };
+export { uploadFile, readFileAsText };
 

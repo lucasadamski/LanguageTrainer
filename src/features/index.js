@@ -1,5 +1,5 @@
 import { lineDivider, wordDivider } from './textParser.js';
-import { sum,  uploadFile, readFileAsText } from './fileUploader.js';
+import { uploadFile, readFileAsText } from './fileUploader.js';
 import { initializeDisplay, drawWordList, drawFileContent } from './display.js';
 
 window.onClickUploadFile = onClickUploadFile;
