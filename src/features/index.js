@@ -1,6 +1,6 @@
 import { lineDivider, wordDivider } from './textParser.js';
 import { uploadFile, readFileAsText } from './fileUploader.js';
-import { initializeDisplay, drawWordList, drawFileContent, drawQuestion } from './display.js';
+import { initializeDisplay, drawWordList, drawFileContent, drawQuestion, drawResponse } from './display.js';
 import { startNewGame, getWordGame, provideAnswerForGame } from './gamePlayer.js';
 import { initializeStats, provideStatsAnswer } from './stats.js';
 
@@ -49,12 +49,7 @@ async function onClickUploadFile() {
 
  answerButton.onclick = () => {
     responseFromAnswer = provideAnswerForGame(answerData.value);
-    if(responseFromAnswer){
-        console.log('Good answer');
-    }
-    else {
-        console.log('Wrong answer');
-    }
+    drawResponse(responseFromAnswer);
     wordOutput = getWordGame();
     if(wordOutput == null) {
         drawQuestion('Game over');

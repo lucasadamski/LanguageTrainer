@@ -1,12 +1,12 @@
 let statsOut;
-let answerOut; 
+let responseOut; 
 let questionOut; 
 let fileOut;
 
 
-function initializeDisplay(statsElement, answerElement, questionElement, fileListElement) {
+function initializeDisplay(statsElement, responseElement, questionElement, fileListElement) {
     statsOut = statsElement;
-    answerOut = answerElement;
+    responseOut = responseElement;
     questionOut = questionElement; 
     fileOut = fileListElement;
 }
@@ -35,4 +35,14 @@ function drawQuestion(data) {
     target.textContent = data;
 }
 
-export { initializeDisplay, drawWordList, drawFileContent, drawQuestion };
+function drawResponse(data) {
+    let target = responseOut;
+    if(data) {
+        target.textContent = 'Good answer';
+    }
+    else {
+        target.textContent = 'Wrong answer';
+    }
+}
+
+export { initializeDisplay, drawWordList, drawFileContent, drawQuestion, drawResponse };
