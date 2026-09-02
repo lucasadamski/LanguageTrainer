@@ -30,4 +30,9 @@ function drawFileContent(data) {
     });
 }
 
-export { initializeDisplay, drawWordList, drawFileContent };
+function drawQuestion(data) {
+    let target = questionOut;
+    target.textContent = data;
+}
+
+export { initializeDisplay, drawWordList, drawFileContent, drawQuestion };
