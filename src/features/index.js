@@ -1,6 +1,6 @@
 import { lineDivider, wordDivider } from './textParser.js';
 import { uploadFile, readFileAsText } from './fileUploader.js';
-import { initializeDisplay, drawWordList, drawFileContent, drawQuestion, drawResponse } from './display.js';
+import { initializeDisplay, drawWordList, drawFileContent, drawQuestion, drawResponse, drawNewGame } from './display.js';
 import { startNewGame, getWordGame, provideAnswerForGame } from './gamePlayer.js';
 import { initializeStats, provideStatsAnswer } from './stats.js';
 
@@ -43,8 +43,8 @@ async function onClickUploadFile() {
     drawFileContent(collectionOfTranslations);
 
     startNewGame(collectionOfTranslations);
- 
-   
+    firstRoundOfQuestion();
+    drawNewGame();
 }
 
  answerButton.onclick = () => {
@@ -55,4 +55,9 @@ async function onClickUploadFile() {
         drawQuestion('Game over');
     }
     else drawQuestion(wordOutput);
+}
+
+function firstRoundOfQuestion() {
+    wordOutput = getWordGame();
+    drawQuestion(wordOutput);
 }

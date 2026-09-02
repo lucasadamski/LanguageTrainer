@@ -45,4 +45,12 @@ function drawResponse(data) {
     }
 }
 
-export { initializeDisplay, drawWordList, drawFileContent, drawQuestion, drawResponse };
+function drawNewGame() {
+    let target = responseOut;
+    target.textContent = 'New ganme started';
+}
+
+export { 
+    initializeDisplay, drawWordList, drawFileContent, drawQuestion, drawResponse,
+    drawNewGame
+ };
