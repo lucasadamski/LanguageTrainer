@@ -6,6 +6,10 @@ const statsObject = {
   streaks: 0
 };
 
+function getStatsObject() {
+  return statsObject;
+}
+
 function initializeStats(collection) {
   statsObject.total = collection.length;
   statsObject.ok = 0;
@@ -31,4 +35,4 @@ function isAllQuestionsAswered() {
   else return false;
 }
 
-export { initializeStats, provideStatsAnswer };
+export { initializeStats, provideStatsAnswer, getStatsObject };

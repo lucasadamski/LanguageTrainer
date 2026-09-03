@@ -1,8 +1,9 @@
 import { lineDivider, wordDivider } from './textParser.js';
 import { uploadFile, readFileAsText } from './fileUploader.js';
-import { initializeDisplay, drawWordList, drawFileContent, drawQuestion, drawResponse, drawNewGame } from './display.js';
+import { initializeDisplay, drawWordList, drawFileContent, drawQuestion, 
+    drawResponse, drawNewGame, drawStats } from './display.js';
 import { startNewGame, getWordGame, provideAnswerForGame } from './gamePlayer.js';
-import { initializeStats, provideStatsAnswer } from './stats.js';
+import { initializeStats, provideStatsAnswer, getStatsObject } from './stats.js';
 
 window.onClickUploadFile = onClickUploadFile;
 
@@ -10,6 +11,7 @@ let wordOutput;
 let answerButton = document.getElementById('answerButton');
 let answerData = document.getElementById('answerData');
 let responseFromAnswer;
+let statsObject;
 
 let fileContent = ''; 
 
@@ -43,12 +45,18 @@ async function onClickUploadFile() {
     drawFileContent(collectionOfTranslations);
 
     startNewGame(collectionOfTranslations);
+    initializeStats(collectionOfTranslations);
     firstRoundOfQuestion();
     drawNewGame();
 }
 
  answerButton.onclick = () => {
     responseFromAnswer = provideAnswerForGame(answerData.value);
+    provideStatsAnswer(responseFromAnswer);
+    
+    statsObject = getStatsObject();
+    drawStats(statsObject);
+
     drawResponse(responseFromAnswer);
     wordOutput = getWordGame();
     if(wordOutput == null) {
@@ -60,4 +68,6 @@ async function onClickUploadFile() {
 function firstRoundOfQuestion() {
     wordOutput = getWordGame();
     drawQuestion(wordOutput);
+    statsObject = getStatsObject();
+    drawStats(statsObject);
 }

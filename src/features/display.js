@@ -50,7 +50,12 @@ function drawNewGame() {
     target.textContent = 'New ganme started';
 }
 
+function drawStats(data) {
+    let target = statsOut;
+    target.textContent = `Total: ${data.total}, OK: ${data.ok}, Bad: ${data.bad}, Points: ${data.points}, Streaks: ${data.streaks}`;
+}
+
 export { 
     initializeDisplay, drawWordList, drawFileContent, drawQuestion, drawResponse,
-    drawNewGame
+    drawNewGame, drawStats
  };
