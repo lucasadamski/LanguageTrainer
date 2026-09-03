@@ -51,6 +51,11 @@ async function onClickUploadFile() {
 }
 
  answerButton.onclick = () => {
+    //Get data from engine 
+    //Display on screen
+    //Get input from user
+    //Provide data to engine
+    
     responseFromAnswer = provideAnswerForGame(answerData.value);
     provideStatsAnswer(responseFromAnswer);
     
@@ -70,4 +75,20 @@ function firstRoundOfQuestion() {
     drawQuestion(wordOutput);
     statsObject = getStatsObject();
     drawStats(statsObject);
+}
+
+function getDataFromEngine() {
+
+}
+
+function displayDataOnScreen() {
+    
+}
+
+function getInputFromUser() {
+    
+}
+
+function ProvideDataToEngine() {
+    
 }
