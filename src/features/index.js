@@ -4,6 +4,7 @@ import { initializeDisplay, drawWordList, drawFileContent, drawQuestion,
     drawResponse, drawNewGame, drawStats } from './display.js';
 import { startNewGame, getWordGame, provideUserInputToGameEngine } from './gamePlayer.js';
 import { initializeStats, provideStatsAnswer, getStatsObject } from './stats.js';
+import * as MediaPlayer from './mediaPlayer.js';
 
 window.onClickUploadFile = onClickUploadFile;
 
@@ -49,6 +50,7 @@ async function onClickUploadFile() {
 
     initializeStats(collectionOfTranslations);
     statsObject = getStatsObject();
+    MediaPlayer.initializeMediaPlayer(statsObject)
     wordOutput = getWordGame();
     drawStats(statsObject);
     drawQuestion(wordOutput);
@@ -73,4 +75,7 @@ async function onClickUploadFile() {
     drawStats(statsObject);
     drawQuestion(wordOutput);
     drawResponse(responseFromAnswer);
+
+    // Play media 
+    MediaPlayer.provideStatsToMediaPlayer(statsObject);
 }

@@ -10,24 +10,32 @@ let previousStats;
 let currentStats;
 
 function initializeMediaPlayer(stats) {
-  previousStats = stats;
+  previousStats = { ...stats };
 }
 
 function provideStatsToMediaPlayer(stats) {
-  currentStats = stats;
+  currentStats = { ...stats };
   if(currentStats.ok > previousStats.ok) {
     playGoodSound();
   }
   if(currentStats.bad > previousStats.bad) {
     playBadSound();
   }
-  previousStats = currentStats;
+  previousStats = { ...currentStats };
 }
 
 function playGoodSound() {
+  const path = '../../media/good.wav';
+  const audio = new Audio(path);
+  audio.play();
+  console.debug('Playing good sound from ' + path);
 }
 
 function playBadSound() {
+  const path = '../../media/bad.wav';
+  const audio = new Audio(path);
+  audio.play();
+  console.debug('Playing bad sound from ' + path);
 }
 
-export { initializeMediaPlayer, provideStatsToMediaPlayer, playGoodSound, playBadSound };
+export { initializeMediaPlayer, provideStatsToMediaPlayer };
