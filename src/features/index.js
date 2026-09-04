@@ -46,10 +46,11 @@ async function onClickUploadFile() {
     drawFileContent(collectionOfTranslations);
 
     startNewGame(collectionOfTranslations);
+
     initializeStats(collectionOfTranslations);
     statsObject = getStatsObject();
-    drawStats(statsObject);
     wordOutput = getWordGame();
+    drawStats(statsObject);
     drawQuestion(wordOutput);
 }
 //initialize display new game   
@@ -72,19 +73,4 @@ async function onClickUploadFile() {
     drawStats(statsObject);
     drawQuestion(wordOutput);
     drawResponse(responseFromAnswer);
-}
-function getDataFromEngine() {
-
-}
-
-function displayDataOnScreen() {
-    
-}
-
-function getInputFromUser() {
-    
-}
-
-function ProvideDataToEngine() {
-    
 }
