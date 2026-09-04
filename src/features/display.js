@@ -9,6 +9,8 @@ function initializeDisplay(statsElement, responseElement, questionElement, fileL
     responseOut = responseElement;
     questionOut = questionElement; 
     fileOut = fileListElement;
+
+    responseOut.textContent = 'New game started';
 }
 
 function drawWordList(collection) {

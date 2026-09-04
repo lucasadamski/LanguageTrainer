@@ -53,7 +53,7 @@ async function onClickUploadFile() {
     drawStats(statsObject);
     drawQuestion(wordOutput);
 }
-//initialize display new game   
+
 /*************************************
  * MAIN EVENT LOOP OF THE PROGRAM ***
  ************************************/
