@@ -2,7 +2,7 @@ import { lineDivider, wordDivider } from './textParser.js';
 import { uploadFile, readFileAsText } from './fileUploader.js';
 import { initializeDisplay, drawWordList, drawFileContent, drawQuestion, 
     drawResponse, drawNewGame, drawStats } from './display.js';
-import { startNewGame, getWordGame, provideAnswerForGame } from './gamePlayer.js';
+import { startNewGame, getWordGame, provideUserInputToGameEngine } from './gamePlayer.js';
 import { initializeStats, provideStatsAnswer, getStatsObject } from './stats.js';
 
 window.onClickUploadFile = onClickUploadFile;
@@ -12,6 +12,7 @@ let answerButton = document.getElementById('answerButton');
 let answerData = document.getElementById('answerData');
 let responseFromAnswer;
 let statsObject;
+let userInput;
 
 let fileContent = ''; 
 
@@ -46,37 +47,32 @@ async function onClickUploadFile() {
 
     startNewGame(collectionOfTranslations);
     initializeStats(collectionOfTranslations);
-    firstRoundOfQuestion();
-    drawNewGame();
-}
-
- answerButton.onclick = () => {
-    //Get data from engine 
-    //Display on screen
-    //Get input from user
-    //Provide data to engine
-    
-    responseFromAnswer = provideAnswerForGame(answerData.value);
-    provideStatsAnswer(responseFromAnswer);
-    
     statsObject = getStatsObject();
     drawStats(statsObject);
-
-    drawResponse(responseFromAnswer);
-    wordOutput = getWordGame();
-    if(wordOutput == null) {
-        drawQuestion('Game over');
-    }
-    else drawQuestion(wordOutput);
-}
-
-function firstRoundOfQuestion() {
     wordOutput = getWordGame();
     drawQuestion(wordOutput);
-    statsObject = getStatsObject();
-    drawStats(statsObject);
 }
+//initialize display new game   
+/*************************************
+ * MAIN EVENT LOOP OF THE PROGRAM ***
+ ************************************/
+ answerButton.onclick = () => {
+    // Get input from user
+    userInput = answerData.value;
+    
+    // Provide data to engine
+    responseFromAnswer = provideUserInputToGameEngine(userInput);
+    provideStatsAnswer(responseFromAnswer);
 
+    // Get data from engine 
+    wordOutput = getWordGame();
+    statsObject = getStatsObject();
+
+    // Display on screen
+    drawStats(statsObject);
+    drawQuestion(wordOutput);
+    drawResponse(responseFromAnswer);
+}
 function getDataFromEngine() {
 
 }

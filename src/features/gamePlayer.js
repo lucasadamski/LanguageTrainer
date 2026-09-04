@@ -16,7 +16,7 @@ function getWordGame() {
     return null;
 }
 
-function provideAnswerForGame(answer) {
+function provideUserInputToGameEngine(answer) {
     if(gameOver) return null;
     let result = false;
     if(answer === null || answer === undefined) result = false;
@@ -28,4 +28,4 @@ function provideAnswerForGame(answer) {
     return result;
 }
 
-export { startNewGame, getWordGame, provideAnswerForGame };
+export { startNewGame, getWordGame, provideUserInputToGameEngine };
