@@ -1,4 +1,5 @@
 import * as mediaPlayer from '../features/mediaPlayer.js';
+import { jest } from '@jest/globals';
 
 test('Plays good sound on good answer', () => {
   // Arrange 
@@ -9,7 +10,7 @@ test('Plays good sound on good answer', () => {
     points: 0,
     streaks: 0
   };
-  
+
   jest.spyOn(mediaPlayer, 'playGoodSound');
 
   // Act 
