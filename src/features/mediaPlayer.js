@@ -1,10 +1,4 @@
-const statsObject = {
-  total: 0,
-  ok: 0,
-  bad: 0,
-  points: 0,
-  streaks: 0
-};
+import * as Config from './config.js';
 
 let previousStats;
 let currentStats;
@@ -30,15 +24,15 @@ function getSoundToPlay(stats) {
 }
 
 function playGoodSound() {
-  return '../../media/good.wav';
-  }
+  return Config.OK_ANSWER_SOUND_PATH;
+}
 
 function playBadSound() {
-  return '../../media/bad.wav';
+  return Config.BAD_ANSWER_SOUND_PATH;
 }
 
 function getVideoToPlay(stats) {
-  return `../../media/damn.mp4`;  
+  return Config.VIDEO_PATH;  
 }
 
 export { initializeMediaPlayer, provideStatsToMediaPlayer, getVideoToPlay, getSoundToPlay };
