@@ -1,7 +1,6 @@
 import { lineDivider, wordDivider } from './textParser.js';
 import { uploadFile, readFileAsText } from './fileUploader.js';
-import { initializeDisplay, drawWordList, drawFileContent, drawQuestion, 
-    drawResponse, drawNewGame, drawStats } from './display.js';
+import * as Display from './display.js';
 import { startNewGame, getWordGame, provideUserInputToGameEngine } from './gamePlayer.js';
 import { initializeStats, provideStatsAnswer, getStatsObject } from './stats.js';
 import * as MediaPlayer from './mediaPlayer.js';
@@ -14,6 +13,7 @@ let answerData = document.getElementById('answerData');
 let responseFromAnswer;
 let statsObject;
 let userInput;
+let videoUrl;
 
 let fileContent = ''; 
 
@@ -23,11 +23,12 @@ const translation = {
 }
 
 async function onClickUploadFile() {
-    initializeDisplay(
+    Display.initializeDisplay(
         document.getElementById('statsOutput'),
         document.getElementById('responseOutput'),
         document.getElementById('questionOutput'),
-        document.getElementById('fileOutput')
+        document.getElementById('fileOutput'),
+        document.getElementById('videoOutput')
     );
 
 
@@ -44,7 +45,7 @@ async function onClickUploadFile() {
     })
     .filter(n => n !== null);
 
-    drawFileContent(collectionOfTranslations);
+    Display.drawFileContent(collectionOfTranslations);
 
     startNewGame(collectionOfTranslations);
 
@@ -52,8 +53,8 @@ async function onClickUploadFile() {
     statsObject = getStatsObject();
     MediaPlayer.initializeMediaPlayer(statsObject)
     wordOutput = getWordGame();
-    drawStats(statsObject);
-    drawQuestion(wordOutput);
+    Display.drawStats(statsObject);
+    Display.drawQuestion(wordOutput);
 }
 
 /*************************************
@@ -70,12 +71,15 @@ async function onClickUploadFile() {
     // Get data from engine 
     wordOutput = getWordGame();
     statsObject = getStatsObject();
-
-    // Display on screen
-    drawStats(statsObject);
-    drawQuestion(wordOutput);
-    drawResponse(responseFromAnswer);
-
+    
     // Play media 
     MediaPlayer.provideStatsToMediaPlayer(statsObject);
+    videoUrl = MediaPlayer.getVideoToPlay(statsObject);
+
+    // Display on screen
+    Display.drawStats(statsObject);
+    Display.drawQuestion(wordOutput);
+    Display.drawResponse(responseFromAnswer);
+    Display.drawVideo(videoUrl);
+
 }

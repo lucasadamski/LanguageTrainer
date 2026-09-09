@@ -38,4 +38,11 @@ function playBadSound() {
   console.debug('Playing bad sound from ' + path);
 }
 
-export { initializeMediaPlayer, provideStatsToMediaPlayer };
+function getVideoToPlay(stats) {
+ 
+  return `../../media/damn.mp4`;  
+}
+
+export { initializeMediaPlayer, provideStatsToMediaPlayer, getVideoToPlay };
+
+

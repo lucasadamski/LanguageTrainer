@@ -2,13 +2,16 @@ let statsOut;
 let responseOut; 
 let questionOut; 
 let fileOut;
+let videoOut;
 
 
-function initializeDisplay(statsElement, responseElement, questionElement, fileListElement) {
+function initializeDisplay(statsElement, responseElement, questionElement, 
+        fileListElement, videoElement) {
     statsOut = statsElement;
     responseOut = responseElement;
     questionOut = questionElement; 
     fileOut = fileListElement;
+    videoOut = videoElement;
 
     responseOut.textContent = 'New game started';
 }
@@ -57,7 +60,20 @@ function drawStats(data) {
     target.textContent = `Total: ${data.total}, OK: ${data.ok}, Bad: ${data.bad}, Points: ${data.points}, Streaks: ${data.streaks}`;
 }
 
+function drawVideo(videoUrl) {
+    let target = videoOut;
+    target.innerHTML = '';
+    const video = document.createElement('video');
+    video.src = videoUrl;
+    video.muted = true;
+    video.autoplay = true;
+    video.controls = true;
+    target.appendChild(video);
+    video.play();
+    console.debug('Playing video from ' + videoUrl);
+}
+
 export { 
     initializeDisplay, drawWordList, drawFileContent, drawQuestion, drawResponse,
-    drawNewGame, drawStats
+    drawNewGame, drawStats, drawVideo
  };
