@@ -57,7 +57,7 @@ function drawNewGame() {
 
 function drawStats(data) {
     let target = statsOut;
-    target.textContent = `Total: ${data.total}, OK: ${data.ok}, Bad: ${data.bad}, Points: ${data.points}, Streaks: ${data.streaks}`;
+    target.textContent = `Total: ${data.total}, OK: ${data.ok}, Bad: ${data.bad}, Points: ${data.points}, OK in row: ${data.okInRow}, Bad in row: ${data.badInRow}`;
 }
 
 function drawVideo(videoUrl) {
