@@ -1,6 +1,6 @@
 import { lineDivider, wordDivider } from './textParser.js';
 import { uploadFile, readFileAsText } from './fileUploader.js';
-import * as Display from './display.js';
+import * as Output from './output.js';
 import { startNewGame, getWordGame, provideUserInputToGameEngine } from './gamePlayer.js';
 import { initializeStats, provideStatsAnswer, getStatsObject } from './stats.js';
 import * as MediaPlayer from './mediaPlayer.js';
@@ -23,7 +23,7 @@ const translation = {
 }
 
 async function onClickUploadFile() {
-    Display.initializeDisplay(
+    Output.initializeDisplay(
         document.getElementById('statsOutput'),
         document.getElementById('responseOutput'),
         document.getElementById('questionOutput'),
@@ -45,7 +45,7 @@ async function onClickUploadFile() {
     })
     .filter(n => n !== null);
 
-    Display.drawFileContent(collectionOfTranslations);
+    Output.drawFileContent(collectionOfTranslations);
 
     startNewGame(collectionOfTranslations);
 
@@ -53,8 +53,8 @@ async function onClickUploadFile() {
     statsObject = getStatsObject();
     MediaPlayer.initializeMediaPlayer(statsObject)
     wordOutput = getWordGame();
-    Display.drawStats(statsObject);
-    Display.drawQuestion(wordOutput);
+    Output.drawStats(statsObject);
+    Output.drawQuestion(wordOutput);
 }
 
 /*************************************
@@ -77,9 +77,9 @@ async function onClickUploadFile() {
     videoUrl = MediaPlayer.getVideoToPlay(statsObject);
 
     // Display on screen
-    Display.drawStats(statsObject);
-    Display.drawQuestion(wordOutput);
-    Display.drawResponse(responseFromAnswer);
-    Display.drawVideo(videoUrl);
+    Output.drawStats(statsObject);
+    Output.drawQuestion(wordOutput);
+    Output.drawResponse(responseFromAnswer);
+    Output.drawVideo(videoUrl);
 
 }
