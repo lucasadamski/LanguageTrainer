@@ -3,7 +3,8 @@ const statsObject = {
   ok: 0,
   bad: 0,
   points: 0,
-  streaks: 0
+  streak
+  
 };
 
 function getStatsObject() {

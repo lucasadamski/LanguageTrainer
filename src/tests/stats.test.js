@@ -63,3 +63,106 @@ test('three good answers for collection of 2, should not accept and keep the res
   expect(result.points).toBe(0);
   expect(result.streaks).toBe(0);
 });
+
+
+
+test('Five good answers in row, should have 5 good answers, and 5 answers in a row good', () => {
+  // Arrange
+  const collectionOfTen = [
+    {word: '', definition: ''},
+    {word: '', definition: ''},
+    {word: '', definition: ''},
+    {word: '', definition: ''},
+    {word: '', definition: ''},
+    {word: '', definition: ''},
+    {word: '', definition: ''},
+    {word: '', definition: ''},
+    {word: '', definition: ''},
+    {word: '', definition: ''}
+  ]
+  let result = initializeStats(collectionOfTen);
+
+  // Act
+  result = provideStatsAnswer(true);
+  result = provideStatsAnswer(true);
+  result = provideStatsAnswer(true);
+  result = provideStatsAnswer(true);
+  result = provideStatsAnswer(true);
+
+  // Assert
+  expect(result.total).toBe(10);
+  expect(result.ok).toBe(5);
+  expect(result.bad).toBe(0);
+  expect(result.points).toBe(0);
+  expect(result.okInRow).toBe(5);
+  expect(result.badInRow).toBe(0);
+  expect(result.history).toBe([true, true, true, true, true]);
+});
+
+
+test('Five good answers in row, should have 5 bad answers, and 5 answers in a row bad', () => {
+  // Arrange
+  const collectionOfTen = [
+    {word: '', definition: ''},
+    {word: '', definition: ''},
+    {word: '', definition: ''},
+    {word: '', definition: ''},
+    {word: '', definition: ''},
+    {word: '', definition: ''},
+    {word: '', definition: ''},
+    {word: '', definition: ''},
+    {word: '', definition: ''},
+    {word: '', definition: ''}
+  ]
+  let result = initializeStats(collectionOfTen);
+
+  // Act
+  result = provideStatsAnswer(false);
+  result = provideStatsAnswer(false);
+  result = provideStatsAnswer(false);
+  result = provideStatsAnswer(false);
+  result = provideStatsAnswer(false);
+
+  // Assert
+  expect(result.total).toBe(10);
+  expect(result.ok).toBe(0);
+  expect(result.bad).toBe(5);
+  expect(result.points).toBe(0);
+  expect(result.okInRow).toBe(0);
+  expect(result.badInRow).toBe(5);
+  expect(result.history).toBe([false, false, false, false, false]);
+});
+
+
+test('2 bad answers in row, 2 answers in a row bad', () => {
+  // Arrange
+  const collectionOfTen = [
+    {word: '', definition: ''},
+    {word: '', definition: ''},
+    {word: '', definition: ''},
+    {word: '', definition: ''},
+    {word: '', definition: ''},
+    {word: '', definition: ''},
+    {word: '', definition: ''},
+    {word: '', definition: ''},
+    {word: '', definition: ''},
+    {word: '', definition: ''}
+  ]
+  let result = initializeStats(collectionOfTen);
+
+  // Act
+  result = provideStatsAnswer(true);
+  result = provideStatsAnswer(true);
+  result = provideStatsAnswer(true);
+  result = provideStatsAnswer(false);
+  result = provideStatsAnswer(false);
+
+  // Assert
+  expect(result.total).toBe(10);
+  expect(result.ok).toBe(3);
+  expect(result.bad).toBe(2);
+  expect(result.points).toBe(0);
+  expect(result.okInRow).toBe(0);
+  expect(result.badInRow).toBe(2);
+  expect(result.history).toBe([true, true, true, false, false]);
+});
