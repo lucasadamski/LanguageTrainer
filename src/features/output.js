@@ -73,7 +73,13 @@ function drawVideo(videoUrl) {
     console.debug('Playing video from ' + videoUrl);
 }
 
+function playSound(soundUrl) {
+    const audio = new Audio(soundUrl);
+    audio.play();
+    console.debug('Playing sound from ' + soundUrl);
+}
+
 export { 
     initializeDisplay, drawWordList, drawFileContent, drawQuestion, drawResponse,
-    drawNewGame, drawStats, drawVideo
+    drawNewGame, drawStats, drawVideo, playSound
  };

@@ -14,6 +14,7 @@ let responseFromAnswer;
 let statsObject;
 let userInput;
 let videoUrl;
+let soundUrl;
 
 let fileContent = ''; 
 
@@ -55,6 +56,8 @@ async function onClickUploadFile() {
     wordOutput = getWordGame();
     Output.drawStats(statsObject);
     Output.drawQuestion(wordOutput);
+    Output.drawVideo(videoUrl);
+    Output.playSound(soundUrl);
 }
 
 /*************************************
@@ -75,11 +78,13 @@ async function onClickUploadFile() {
     // Play media 
     MediaPlayer.provideStatsToMediaPlayer(statsObject);
     videoUrl = MediaPlayer.getVideoToPlay(statsObject);
+    soundUrl = MediaPlayer.getSoundToPlay(statsObject);
 
-    // Display on screen
+    // Output on screen and media
     Output.drawStats(statsObject);
     Output.drawQuestion(wordOutput);
     Output.drawResponse(responseFromAnswer);
     Output.drawVideo(videoUrl);
+    Output.playSound(soundUrl);
 
 }

@@ -14,35 +14,33 @@ function initializeMediaPlayer(stats) {
 }
 
 function provideStatsToMediaPlayer(stats) {
-  currentStats = { ...stats };
+  previousStats = { ...currentStats };
+  currentStats = { ...stats };  
+}
+
+function getSoundToPlay(stats) {
+  let result;
   if(currentStats.ok > previousStats.ok) {
-    playGoodSound();
+    result = playGoodSound();
   }
   if(currentStats.bad > previousStats.bad) {
-    playBadSound();
+    result = playBadSound();
   }
-  previousStats = { ...currentStats };
+  return result;
 }
 
 function playGoodSound() {
-  const path = '../../media/good.wav';
-  const audio = new Audio(path);
-  audio.play();
-  console.debug('Playing good sound from ' + path);
-}
+  return '../../media/good.wav';
+  }
 
 function playBadSound() {
-  const path = '../../media/bad.wav';
-  const audio = new Audio(path);
-  audio.play();
-  console.debug('Playing bad sound from ' + path);
+  return '../../media/bad.wav';
 }
 
 function getVideoToPlay(stats) {
- 
   return `../../media/damn.mp4`;  
 }
 
-export { initializeMediaPlayer, provideStatsToMediaPlayer, getVideoToPlay };
+export { initializeMediaPlayer, provideStatsToMediaPlayer, getVideoToPlay, getSoundToPlay };
 
 
