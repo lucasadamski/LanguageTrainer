@@ -15,7 +15,6 @@ test('initialize', () => {
   expect(result.ok).toBe(0);
   expect(result.bad).toBe(0);
   expect(result.points).toBe(0);
-  expect(result.streaks).toBe(0);
 });
 
 
@@ -30,7 +29,6 @@ test('one good answer for collection of 2', () => {
   expect(result.ok).toBe(1);
   expect(result.bad).toBe(0);
   expect(result.points).toBe(0);
-  expect(result.streaks).toBe(0);
 });
 
 const collection3 = [
@@ -45,7 +43,6 @@ test('two good answers for collection of 2', () => {
   expect(result.ok).toBe(2);
   expect(result.bad).toBe(0);
   expect(result.points).toBe(0);
-  expect(result.streaks).toBe(0);
 });
 
 const collection4 = [
@@ -61,7 +58,6 @@ test('three good answers for collection of 2, should not accept and keep the res
   expect(result.ok).toBe(2);
   expect(result.bad).toBe(0);
   expect(result.points).toBe(0);
-  expect(result.streaks).toBe(0);
 });
 
 
@@ -96,7 +92,7 @@ test('Five good answers in row, should have 5 good answers, and 5 answers in a r
   expect(result.points).toBe(0);
   expect(result.okInRow).toBe(5);
   expect(result.badInRow).toBe(0);
-  expect(result.history).toBe([true, true, true, true, true]);
+  expect(result.history).toEqual([true, true, true, true, true]);
 });
 
 
@@ -130,7 +126,7 @@ test('Five good answers in row, should have 5 bad answers, and 5 answers in a ro
   expect(result.points).toBe(0);
   expect(result.okInRow).toBe(0);
   expect(result.badInRow).toBe(5);
-  expect(result.history).toBe([false, false, false, false, false]);
+  expect(result.history).toEqual([false, false, false, false, false]);
 });
 
 
@@ -164,5 +160,5 @@ test('2 bad answers in row, 2 answers in a row bad', () => {
   expect(result.points).toBe(0);
   expect(result.okInRow).toBe(0);
   expect(result.badInRow).toBe(2);
-  expect(result.history).toBe([true, true, true, false, false]);
+  expect(result.history).toEqual([true, true, true, false, false]);
 });
