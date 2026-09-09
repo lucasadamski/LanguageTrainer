@@ -1,25 +1,27 @@
 import * as Config from '../features/config.js';
 import * as MediaPlayer from '../features/mediaPlayer.js';
 
-let initialStatsObject;
-initialStatsObject.total = 10;
-initialStatsObject.ok = 0;
-initialStatsObject.bad = 0;
-initialStatsObject.points = 0;
-initialStatsObject.okInRow = 0;
-initialStatsObject.badInRow = 0;
-initialStatsObject.history = [];
-
+let initialStatsObject = {
+  total: 0,
+  ok: 0,
+  bad: 0,
+  points: 0,
+  okInRow: 0,
+  badInRow: 0,
+  history: []
+};
+5
 test('1st good answer, return FIRST_OK_ANSWER_SOUND_PATH', () => {
   // Arrange
-  let statsObject;
-  statsObject.total = 10;
-  statsObject.ok = 1;
-  statsObject.bad = 5;
-  statsObject.points = 0;
-  statsObject.okInRow = 1;
-  statsObject.badInRow = 0;
-  statsObject.history = [false, false, false, false, false, true];
+  let statsObject = {
+    total: 10,
+    ok: 1,
+    bad: 5,
+    points: 0,
+    okInRow: 1,
+    badInRow: 0,
+    history: [false, false, false, false, false, true]
+  };
 
   MediaPlayer.initializeMediaPlayer(initialStatsObject);
   MediaPlayer.provideStatsToMediaPlayer(statsObject);
@@ -33,14 +35,15 @@ test('1st good answer, return FIRST_OK_ANSWER_SOUND_PATH', () => {
 
 test('1st bad answer, return FIRST_BAD_ANSWER_SOUND_PATH', () => {
   // Arrange
-  let statsObject;
-  statsObject.total = 10;
-  statsObject.ok = 3;
-  statsObject.bad = 1;
-  statsObject.points = 0;
-  statsObject.okInRow = 0;
-  statsObject.badInRow = 0;
-  statsObject.history = [true, true, true, false];
+  let statsObject = {
+    total: 10,
+    ok: 3,
+    bad: 1,
+    points: 0,
+    okInRow: 0,
+    badInRow: 0,
+    history: [true, true, true, false]
+  };
 
   MediaPlayer.initializeMediaPlayer(initialStatsObject);
   MediaPlayer.provideStatsToMediaPlayer(statsObject);
@@ -54,14 +57,15 @@ test('1st bad answer, return FIRST_BAD_ANSWER_SOUND_PATH', () => {
 
 test('five bad answers in a row, return FIVE_BAD_ANSWERS_SOUND_PATH', () => {
   // Arrange
-  let statsObject;
-  statsObject.total = 10;
-  statsObject.ok = 0;
-  statsObject.bad = 5;
-  statsObject.points = 0;
-  statsObject.okInRow = 0;
-  statsObject.badInRow = 5;
-  statsObject.history = [false, false, false, false, false];
+  let statsObject = {
+    total: 10,
+    ok: 0,
+    bad: 5,
+    points: 0,
+    okInRow: 0,
+    badInRow: 5,
+    history: [false, false, false, false, false]
+  };
 
   MediaPlayer.initializeMediaPlayer(initialStatsObject);
   MediaPlayer.provideStatsToMediaPlayer(statsObject);
@@ -75,14 +79,15 @@ test('five bad answers in a row, return FIVE_BAD_ANSWERS_SOUND_PATH', () => {
 
 test('five ok answers in a row, return FIVE_OK_ANSWERS_SOUND_PATH', () => {
   // Arrange
-  let statsObject;
-  statsObject.total = 10;
-  statsObject.ok = 5;
-  statsObject.bad = 0;
-  statsObject.points = 0;
-  statsObject.okInRow = 5;
-  statsObject.badInRow = 0;
-  statsObject.history = [true, true, true, true, true];
+  let statsObject = {
+    total: 10,
+    ok: 5,
+    bad: 0,
+    points: 0,
+    okInRow: 5,
+    badInRow: 0,
+    history: [true, true, true, true, true]
+  };
 
   MediaPlayer.initializeMediaPlayer(initialStatsObject);
   MediaPlayer.provideStatsToMediaPlayer(statsObject);
@@ -96,15 +101,16 @@ test('five ok answers in a row, return FIVE_OK_ANSWERS_SOUND_PATH', () => {
 
 test('2 bad answer in a row, play BAD_SOUND_PATH', () => {
   // Arrange
-  let statsObject;
-  statsObject.total = 10;
-  statsObject.ok = 0;
-  statsObject.bad = 2;
-  statsObject.points = 0;
-  statsObject.okInRow = 0;
-  statsObject.badInRow = 2;
-  statsObject.history = [false, false];
-
+  let statsObject = {
+    total: 10,
+    ok: 0,
+    bad: 2,
+    points: 0,
+    okInRow: 0,
+    badInRow: 2,
+    history: [false, false]
+  };
+  
   MediaPlayer.initializeMediaPlayer(initialStatsObject);
   MediaPlayer.provideStatsToMediaPlayer(statsObject);
 
@@ -117,15 +123,16 @@ test('2 bad answer in a row, play BAD_SOUND_PATH', () => {
 
 test('2 ok answer in a row, play OK_SOUND_PATH', () => {
   // Arrange
-  let statsObject;
-  statsObject.total = 10;
-  statsObject.ok = 2;
-  statsObject.bad = 0;
-  statsObject.points = 0;
-  statsObject.okInRow = 2;
-  statsObject.badInRow = 0;
-  statsObject.history = [true, true];
-
+  let statsObject = {
+    total: 10,
+    ok: 2,
+    bad: 0,
+    points: 0,
+    okInRow: 2,
+    badInRow: 0,
+    history: [true, true]
+  };
+  
   MediaPlayer.initializeMediaPlayer(initialStatsObject);
   MediaPlayer.provideStatsToMediaPlayer(statsObject);
 
