@@ -46,14 +46,19 @@ async function onClickUploadFile() {
     })
     .filter(n => n !== null);
 
-    Output.drawFileContent(collectionOfTranslations);
-
+    
     startNewGame(collectionOfTranslations);
-
+    
     initializeStats(collectionOfTranslations);
     statsObject = getStatsObject();
+    
     MediaPlayer.initializeMediaPlayer(statsObject)
+    soundUrl = MediaPlayer.getSoundToPlay();
+    videoUrl = MediaPlayer.getVideoToPlay();
+    
     wordOutput = getWordGame();
+    
+    Output.drawFileContent(collectionOfTranslations);
     Output.drawStats(statsObject);
     Output.drawQuestion(wordOutput);
     Output.drawVideo(videoUrl);
