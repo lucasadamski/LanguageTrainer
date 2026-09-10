@@ -27,7 +27,7 @@ test('1st good answer, return FIRST_OK_ANSWER_SOUND_PATH', () => {
   MediaPlayer.provideStatsToMediaPlayer(statsObject);
 
   // Act
-  let result = MediaPlayer.getSoundToPlay(statsObject);
+  let result = MediaPlayer.getSoundToPlay();
 
   // Assert
   expect(result).toBe(Config.FIRST_OK_ANSWER_SOUND_PATH);
@@ -49,7 +49,7 @@ test('1st bad answer, return FIRST_BAD_ANSWER_SOUND_PATH', () => {
   MediaPlayer.provideStatsToMediaPlayer(statsObject);
 
   // Act
-  let result = MediaPlayer.getSoundToPlay(statsObject);
+  let result = MediaPlayer.getSoundToPlay();
 
   // Assert
   expect(result).toBe(Config.FIRST_BAD_ANSWER_SOUND_PATH);
@@ -71,7 +71,7 @@ test('five bad answers in a row, return FIVE_BAD_ANSWERS_SOUND_PATH', () => {
   MediaPlayer.provideStatsToMediaPlayer(statsObject);
 
   // Act
-  let result = MediaPlayer.getSoundToPlay(statsObject);
+  let result = MediaPlayer.getSoundToPlay();
 
   // Assert
   expect(result).toBe(Config.FIVE_BAD_ANSWERS_SOUND_PATH);
@@ -93,7 +93,7 @@ test('five ok answers in a row, return FIVE_OK_ANSWERS_SOUND_PATH', () => {
   MediaPlayer.provideStatsToMediaPlayer(statsObject);
 
   // Act
-  let result = MediaPlayer.getSoundToPlay(statsObject);
+  let result = MediaPlayer.getSoundToPlay();
 
   // Assert
   expect(result).toBe(Config.FIVE_OK_ANSWERS_SOUND_PATH);
@@ -115,7 +115,7 @@ test('2 bad answer in a row, play BAD_SOUND_PATH', () => {
   MediaPlayer.provideStatsToMediaPlayer(statsObject);
 
   // Act
-  let result = MediaPlayer.getSoundToPlay(statsObject);
+  let result = MediaPlayer.getSoundToPlay();
 
   // Assert
   expect(result).toBe(Config.BAD_ANSWER_SOUND_PATH);
@@ -137,8 +137,20 @@ test('2 ok answer in a row, play OK_SOUND_PATH', () => {
   MediaPlayer.provideStatsToMediaPlayer(statsObject);
 
   // Act
-  let result = MediaPlayer.getSoundToPlay(statsObject);
+  let result = MediaPlayer.getSoundToPlay();
 
   // Assert
   expect(result).toBe(Config.OK_ANSWER_SOUND_PATH);
+});
+
+
+test('On zero attempted answers play new game sound', () => {
+  // Arrange
+  MediaPlayer.initializeMediaPlayer(initialStatsObject);
+
+  // Act
+  let result = MediaPlayer.getSoundToPlay();
+
+  // Assert
+  expect(result).toBe(Config.NEW_GAME_SOUND_PATH);
 });
