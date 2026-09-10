@@ -77,8 +77,8 @@ async function onClickUploadFile() {
     
     // Play media 
     MediaPlayer.provideStatsToMediaPlayer(statsObject);
-    videoUrl = MediaPlayer.getVideoToPlay(statsObject);
-    soundUrl = MediaPlayer.getSoundToPlay(statsObject);
+    videoUrl = MediaPlayer.getVideoToPlay();
+    soundUrl = MediaPlayer.getSoundToPlay();
 
     // Output on screen and media
     Output.drawStats(statsObject);

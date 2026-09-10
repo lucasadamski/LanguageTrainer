@@ -13,8 +13,7 @@ function provideStatsToMediaPlayer(stats) {
   currentStats = { ...stats };  
 }
 
-function getSoundToPlay(stats) {
-
+function getSoundToPlay() {
   if(currentStats.ok === 1 && previousStats.ok === 0) {
     return firstOkAnswerSound();
   }
@@ -33,14 +32,6 @@ function getSoundToPlay(stats) {
   if(currentStats.bad > previousStats.bad) {
     return playBadSound();
   }
-}
-
-function twoGoodAnswersInRowSound() {
-  return Config.TWO_GOOD_ANSWERS_IN_ROW_SOUND_PATH;
-}
-
-function twoBadAnswersInRowSound() {
-  return Config.TWO_BAD_ANSWERS_IN_ROW_SOUND_PATH;
 }
 
 function firstOkAnswerSound() {
@@ -67,7 +58,7 @@ function fiveOkAnswersSound() {
   return Config.FIVE_OK_ANSWERS_SOUND_PATH;
 }
 
-function getVideoToPlay(stats) {
+function getVideoToPlay() {
   return Config.VIDEO_PATH;  
 }
 
