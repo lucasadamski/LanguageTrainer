@@ -1,15 +1,32 @@
-<input type="file" id="fileInput" accept=".txt">
-
-<button id="buttonUploadFile" onclick="onClickUploadFile()">Upload File</button>
-
-<div id="fileOutput">FileOutput</div>
-<div id="statsOutput">Statistics</div>
-<div id="questionOutput">Question Output</div>
-<div id="inputAnswer">
-    <input type="text" id="answerData"></input>
-    <button id="answerButton">Check</button> 
-</div>
-<div id="videoOutput"></div>
-<div id="responseOutput">ResponseOutput</div>
-
-<script type="module" src="src/features/index.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css">
+    <title>Language Trainer</title>
+</head>
+<body>
+    <input type="file" id="fileInput" accept=".txt">
+    
+    <button id="buttonUploadFile" onclick="onClickUploadFile()">Upload File</button>
+    
+    <div class="container">
+        <div class="left-col">
+            <div id="fileOutput">FileOutput</div>
+            <div id="statsOutput">Statistics</div>
+            <div id="questionOutput">Question Output</div>
+            <div id="inputAnswer">
+                <input type="text" id="answerData"></input>
+                <button id="answerButton">Check</button> 
+            </div>
+        </div>
+        <div class="right-col">
+            <div id="responseOutput">ResponseOutput</div>
+            <div id="videoOutput"></div>
+        </div>
+    </div>
+    
+    <script type="module" src="src/features/index.js"></script>
+</body>
+</html>
