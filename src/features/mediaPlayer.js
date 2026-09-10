@@ -32,6 +32,13 @@ function getSoundToPlay() {
   if(currentStats.bad > previousStats.bad) {
     return playBadSound();
   }
+  if(currentStats.ok === 0 && currentStats.bad === 0) {
+    return newGameSound();
+  }
+}
+
+function newGameSound() {
+  return Config.NEW_GAME_SOUND_PATH;
 }
 
 function firstOkAnswerSound() {
