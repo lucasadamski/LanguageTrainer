@@ -118,7 +118,7 @@ test('2 bad answer in a row, play BAD_SOUND_PATH', () => {
   let result = MediaPlayer.getSoundToPlay(statsObject);
 
   // Assert
-  expect(result).toBe(Config.FIVE_BAD_ANSWERS_SOUND_PATH);
+  expect(result).toBe(Config.BAD_ANSWER_SOUND_PATH);
 });
 
 test('2 ok answer in a row, play OK_SOUND_PATH', () => {
@@ -140,5 +140,5 @@ test('2 ok answer in a row, play OK_SOUND_PATH', () => {
   let result = MediaPlayer.getSoundToPlay(statsObject);
 
   // Assert
-  expect(result).toBe(Config.FIVE_OK_ANSWERS_SOUND_PATH);
+  expect(result).toBe(Config.OK_ANSWER_SOUND_PATH);
 });

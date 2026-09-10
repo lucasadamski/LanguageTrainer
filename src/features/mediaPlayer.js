@@ -21,12 +21,6 @@ function getSoundToPlay(stats) {
   if(currentStats.bad === 1 && previousStats.bad === 0) {
     return firstBadAnswerSound();
   }
-  if (currentStats.okInRow === 2) {
-    return twoGoodAnswersInRowSound();
-  }
-  if (currentStats.badInRow === 2) {
-    return twoBadAnswersInRowSound();
-  }
   if (currentStats.badInRow === 5) {
     return fiveBadAnswersSound();
   }
