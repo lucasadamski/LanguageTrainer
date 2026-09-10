@@ -10,7 +10,7 @@ let initialStatsObject = {
   badInRow: 0,
   history: []
 };
-5
+
 test('1st good answer, return FIRST_OK_ANSWER_SOUND_PATH', () => {
   // Arrange
   let statsObject = {
