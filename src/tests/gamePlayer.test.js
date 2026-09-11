@@ -69,3 +69,47 @@ test('definitions separated by comma, provided bad answer, rejects it', () => {
   // Assert
   expect(response).toBe(false);
 });
+
+test('definitions separated by comma, provided bad answer, rejects it', () => {
+  // Arrange
+  let testCollection = [ {word: 'testWord', definition: 'testDef,testDef2, testDef3' } ];
+  startNewGame(testCollection);
+  let question = getWordGame();
+  let answer = 'badAnswer';
+  
+  // Act
+  let response = provideUserInputToGameEngine(answer);
+  
+  // Assert
+  expect(response).toBe(false);
+});
+
+
+test('ignore prefix "la" in answer', () => {
+  // Arrange
+  let testCollection = [ {word: 'testWord', definition: ' la testDef2' } ];
+  startNewGame(testCollection);
+  let question = getWordGame();
+  let answer = 'testDef2';
+  
+  // Act
+  let response = provideUserInputToGameEngine(answer);
+  
+  // Assert
+  expect(response).toBe(true);
+});
+
+
+test('ignore prefix "un" in answer', () => {
+  // Arrange
+  let testCollection = [ {word: 'testWord', definition: ' un testDef1, testDef2' } ];
+  startNewGame(testCollection);
+  let question = getWordGame();
+  let answer = 'testDef1';
+  
+  // Act
+  let response = provideUserInputToGameEngine(answer);
+  
+  // Assert
+  expect(response).toBe(true);
+});
