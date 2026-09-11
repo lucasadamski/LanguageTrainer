@@ -18,14 +18,30 @@ function getWordGame() {
 
 function provideUserInputToGameEngine(answer) {
     if(gameOver) return null;
-    let result = false;
-    if(answer === null || answer === undefined) result = false;
-    if (answer === wordBank[iterator].definition) result = true;
+    let result = checkAnswer(answer);
     if(iterator < length) 
         iterator++;
     else 
         gameOver = true;
     return result;
+}
+
+function checkAnswer(answer) {
+    if (answer === null || answer === undefined) {
+        result = false;
+    } 
+    let definitionsArray = splitDefinitionsBySeparator(wordBank[iterator].definition);
+    if (definitionsArray.includes(answer)) { 
+        return true;
+    }
+    return false;    
+}
+
+function splitDefinitionsBySeparator(definition) {
+    if(definition.includes(',')) {
+        return definition.split(',').map(n => n.trim());
+    }
+    return [definition];
 }
 
 export { startNewGame, getWordGame, provideUserInputToGameEngine };
