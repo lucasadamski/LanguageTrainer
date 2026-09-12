@@ -113,3 +113,19 @@ test('ignore prefix "un" in answer', () => {
   // Assert
   expect(response).toBe(true);
 });
+
+test('ignore spanish letters', () => {
+  // Arrange
+  let testCollection = [ {word: 'testWord', definition: 'test_á, test_é, test_í, test_ó, test_ú, test_ü, test_ñ, test_¿, test_¡' } ];
+  startNewGame(testCollection);
+  let question = getWordGame();
+  let answers = ['test_á', 'test_é', 'test_í', 'test_ó', 'test_ú', 'test_ü', 'test_ñ', 'test_¿', 'test_¡'];
+
+  answers.forEach(answer => {
+    // Act
+    let response = provideUserInputToGameEngine(answer);
+  
+    // Assert
+    expect(response).toBe(true);
+  })
+  });
