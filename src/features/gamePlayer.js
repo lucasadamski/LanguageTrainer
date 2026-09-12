@@ -31,9 +31,10 @@ function checkAnswer(answer) {
         result = false;
     } 
     let definitionsArray = splitDefinitionsBySeparator(wordBank[iterator].definition);
-    if (definitionsArray.includes(answer)) { 
+    let defArr = removePrefixesFromDefinitions(definitionsArray);
+    if (defArr.includes(answer)) { 
         return true;
-    }
+    } 
     return false;    
 }
 
@@ -42,6 +43,22 @@ function splitDefinitionsBySeparator(definition) {
         return definition.split(',').map(n => n.trim());
     }
     return [definition];
+}
+
+function removePrefixesFromDefinitions(definitionsArray) {
+    if(definitionsArray == null || definitionsArray == undefined) return null;
+    let prefixes = ['la', 'el', 'los', 'las', 'un', 'uno', 'una'];
+    let result = definitionsArray.map(definition => {
+        let defArr = definition.trim().split(' ');
+        if (defArr.length > 1) {
+            if(prefixes.some(n => n === defArr[0].toLowerCase().trim() )) {
+                defArr.shift();
+                return defArr.join(' ');
+            }
+        }
+        return definition;
+    });
+    return result;
 }
 
 export { startNewGame, getWordGame, provideUserInputToGameEngine };
