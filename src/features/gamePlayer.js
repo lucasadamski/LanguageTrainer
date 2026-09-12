@@ -29,11 +29,12 @@ function provideUserInputToGameEngine(answer) {
 function checkAnswer(answer) {
     if (answer === null || answer === undefined) {
         result = false;
-    } 
+    }
+    let sanitazedAnswer = normalizeSpecialCharacterForWord(answer); 
     let definitionsArray = splitDefinitionsBySeparator(wordBank[iterator].definition);
     let defArr = removePrefixesFromDefinitions(definitionsArray);
     let normalizedArr = normalizeSpecialCharacters(defArr);
-    if (normalizedArr.includes(answer)) { 
+    if (normalizedArr.includes(sanitazedAnswer)) { 
         return true;
     } 
     return false;    
@@ -64,6 +65,13 @@ function removePrefixesFromDefinitions(definitionsArray) {
 
 function normalizeSpecialCharacters(definitionsArray) {
     if(definitionsArray == null || definitionsArray == undefined) return null;    
+    
+    return definitionsArray.map(definition =>
+        normalizeSpecialCharacterForWord(definition)
+    );
+}
+
+function normalizeSpecialCharacterForWord(word) {
     const normalizeMap = {
             'á': 'a',
             'é': 'e',
@@ -76,13 +84,10 @@ function normalizeSpecialCharacters(definitionsArray) {
             '¡': ''
         };
 
-    return definitionsArray.map(definition =>
-        definition
+    return word
             .split('')
             .map(ch => normalizeMap[ch] ?? ch)
             .join('')
-    );
-
 }
 
 export { startNewGame, getWordGame, provideUserInputToGameEngine };
