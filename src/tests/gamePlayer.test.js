@@ -114,12 +114,22 @@ test('ignore prefix "un" in answer', () => {
   expect(response).toBe(true);
 });
 
-test('ignore spanish letters', () => {
+test('ignore spanish letters for answers', () => {
   // Arrange
-  let testCollection = [ {word: 'testWord', definition: 'test_á, test_é, test_í, test_ó, test_ú, test_ü, test_ñ, test_¿, test_¡' } ];
+  let testCollection = [ 
+    {word: 'testWord', definition: 'test_á, test_é, test_í, test_ó, test_ú, test_ü, test_ñ, test_¿, test_¡' }, 
+    {word: 'testWord', definition: 'test_á, test_é, test_í, test_ó, test_ú, test_ü, test_ñ, test_¿, test_¡' }, 
+    {word: 'testWord', definition: 'test_á, test_é, test_í, test_ó, test_ú, test_ü, test_ñ, test_¿, test_¡' }, 
+    {word: 'testWord', definition: 'test_á, test_é, test_í, test_ó, test_ú, test_ü, test_ñ, test_¿, test_¡' }, 
+    {word: 'testWord', definition: 'test_á, test_é, test_í, test_ó, test_ú, test_ü, test_ñ, test_¿, test_¡' }, 
+    {word: 'testWord', definition: 'test_á, test_é, test_í, test_ó, test_ú, test_ü, test_ñ, test_¿, test_¡' }, 
+    {word: 'testWord', definition: 'test_á, test_é, test_í, test_ó, test_ú, test_ü, test_ñ, test_¿, test_¡' }, 
+    {word: 'testWord', definition: 'test_á, test_é, test_í, test_ó, test_ú, test_ü, test_ñ, test_¿, test_¡' }, 
+    {word: 'testWord', definition: 'test_á, test_é, test_í, test_ó, test_ú, test_ü, test_ñ, test_¿, test_¡' }
+  ];
   startNewGame(testCollection);
   let question = getWordGame();
-  let answers = ['test_á', 'test_é', 'test_í', 'test_ó', 'test_ú', 'test_ü', 'test_ñ', 'test_¿', 'test_¡'];
+  let answers = ['test_a', 'test_e', 'test_i', 'test_o', 'test_u', 'test_n', 'test_', 'test_'];
 
   answers.forEach(answer => {
     // Act

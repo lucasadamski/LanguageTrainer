@@ -32,7 +32,8 @@ function checkAnswer(answer) {
     } 
     let definitionsArray = splitDefinitionsBySeparator(wordBank[iterator].definition);
     let defArr = removePrefixesFromDefinitions(definitionsArray);
-    if (defArr.includes(answer)) { 
+    let normalizedArr = normalizeSpecialCharacters(defArr);
+    if (normalizedArr.includes(answer)) { 
         return true;
     } 
     return false;    
@@ -59,6 +60,29 @@ function removePrefixesFromDefinitions(definitionsArray) {
         return definition;
     });
     return result;
+}
+
+function normalizeSpecialCharacters(definitionsArray) {
+    if(definitionsArray == null || definitionsArray == undefined) return null;    
+    const normalizeMap = {
+            'á': 'a',
+            'é': 'e',
+            'í': 'i',
+            'ó': 'o',
+            'ú': 'u',
+            'ü': 'u',
+            'ñ': 'n',
+            '¿': '',
+            '¡': ''
+        };
+
+    return definitionsArray.map(definition =>
+        definition
+            .split('')
+            .map(ch => normalizeMap[ch] ?? ch)
+            .join('')
+    );
+
 }
 
 export { startNewGame, getWordGame, provideUserInputToGameEngine };
