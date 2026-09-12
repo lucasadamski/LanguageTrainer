@@ -30,8 +30,10 @@ function checkAnswer(answer) {
     if (answer === null || answer === undefined) {
         result = false;
     }
-    let sanitazedAnswer = normalizeSpecialCharacterForWord(answer); 
-    let definitionsArray = splitDefinitionsBySeparator(wordBank[iterator].definition);
+    let sanitazedAnswer = sanitizeAnswer(answer); 
+    let currentDefinition = wordBank[iterator].definition;
+    let sanitizedDefinition = sanitizeDefinition(currentDefinition);
+    let definitionsArray = splitDefinitionsBySeparator(sanitizedDefinition);
     let defArr = removePrefixesFromDefinitions(definitionsArray);
     let normalizedArr = normalizeSpecialCharacters(defArr);
     if (normalizedArr.includes(sanitazedAnswer)) { 
@@ -88,6 +90,16 @@ function normalizeSpecialCharacterForWord(word) {
             .split('')
             .map(ch => normalizeMap[ch] ?? ch)
             .join('')
+}
+
+function sanitizeAnswer(answer) {
+    let lowerCaseTrimmed = answer.toLowerCase();
+    let result = normalizeSpecialCharacterForWord(lowerCaseTrimmed);
+    return result;
+}
+
+function sanitizeDefinition(definition) {
+    return definition.toLowerCase().trim();
 }
 
 export { startNewGame, getWordGame, provideUserInputToGameEngine };

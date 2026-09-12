@@ -165,3 +165,34 @@ test('ignore spanish letters for answers', () => {
     expect(response).toBe(true);
   })
   });
+
+
+  test('Given answer is case different than question, then the answer is correct ', () => {
+  // Arrange
+  let testCollection = [ 
+    {word: 'testWord', definition: 'test' }];
+  startNewGame(testCollection);
+  let question = getWordGame();
+  let answer = 'TeST';
+
+    // Act
+    let response = provideUserInputToGameEngine(answer);
+  
+    // Assert
+    expect(response).toBe(true);
+  });
+
+    test('Given definition is case different than answer, then the answer is correct ', () => {
+  // Arrange
+  let testCollection = [ 
+    {word: 'testWord', definition: 'tEsT' }];
+  startNewGame(testCollection);
+  let question = getWordGame();
+  let answer = 'test';
+
+    // Act
+    let response = provideUserInputToGameEngine(answer);
+  
+    // Assert
+    expect(response).toBe(true);
+  });
