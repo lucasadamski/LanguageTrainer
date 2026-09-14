@@ -29,6 +29,19 @@ function wordDivider(word) {
     return result;
 } 
 
+function parseFileContentIntoTranslations(text) {
+        let lines = lineDivider(text);
+        return lines.map(line => {
+            let separatedLine = wordDivider(line);
+            if(separatedLine === undefined) return null;
+            return {
+                word: separatedLine[0],
+                definition: separatedLine[1]
+            };
+        })
+        .filter(n => n !== null);
+}
 
 
-export { lineDivider, wordDivider };
+
+export { lineDivider, wordDivider, parseFileContentIntoTranslations };

@@ -1,21 +1,21 @@
-import { lineDivider, wordDivider } from '../../src/features/textParser.js';
+import * as TextParser from '../../src/features/textParser.js';
 
 let twoLines = `this is 
 a sample`;
 test('twoLines', () => {
-  expect(lineDivider(twoLines).length).toBe(2);
+  expect(TextParser.lineDivider(twoLines).length).toBe(2);
 });
 
 let threeLines = `this is 
 a sample
 three lines `;
 test('threeLines', () => {
-  expect(lineDivider(threeLines).length).toBe(3);
+  expect(TextParser.lineDivider(threeLines).length).toBe(3);
 });
 
 let oneLines = ` `;
 test('oneLines', () => {
-  expect(lineDivider(oneLines).length).toBe(1);
+  expect(TextParser.lineDivider(oneLines).length).toBe(1);
 });
 
 
@@ -23,7 +23,7 @@ test('oneLines', () => {
 
 let word1 = 'cos; tam'; 
 test('word1', () => {
-  let result = wordDivider(word1);
+  let result = TextParser.wordDivider(word1);
   expect(result[0]).toBe('cos');
   expect(result[1]).toBe('tam');
   expect(result.length).toBe(2);
@@ -32,7 +32,7 @@ test('word1', () => {
 
 let word2 = 'cos cos cos  ; tam'; 
 test(word2, () => {
-  let result = wordDivider(word2);
+  let result = TextParser.wordDivider(word2);
   expect(result[0]).toBe('cos cos cos');
   expect(result[1]).toBe('tam');
   expect(result.length).toBe(2);
@@ -40,7 +40,7 @@ test(word2, () => {
 
 let word3 = 'cos-cos  ; tam'; 
 test(word3, () => {
-  let result = wordDivider(word3);
+  let result = TextParser.wordDivider(word3);
   expect(result[0]).toBe('cos-cos');
   expect(result[1]).toBe('tam');
   expect(result.length).toBe(2);
@@ -48,13 +48,13 @@ test(word3, () => {
 
 let word4 = '; tam'; 
 test(word4, () => {
-  let result = wordDivider(word4);
+  let result = TextParser.wordDivider(word4);
    expect(result).toBe(undefined);
 })
 
 let word5 = 'cos,tam'; 
 test(word5, () => {
-  let result = wordDivider(word5);
+  let result = TextParser.wordDivider(word5);
   expect(result[0]).toBe('cos');
   expect(result[1]).toBe('tam');
   expect(result.length).toBe(2);
@@ -62,14 +62,28 @@ test(word5, () => {
 
 let word6 = 'cos;tam;cos;tam;'; 
 test(word6, () => {
-  let result = wordDivider(word6);
+  let result = TextParser.wordDivider(word6);
   expect(result).toBe(undefined);
 })
 
 let word7 = ' - cos'; 
 test(word7, () => {
-  let result = wordDivider(word7);
+  let result = TextParser.wordDivider(word7);
   expect(result).toBe(undefined);
 })
 
-
+test('parses text into translations', () => {
+  // Arange 
+  let sample = 
+  `hazme un favor                                                      - do me a favour
+  que asco                                                            - how disgusting
+  `;
+  let expectedResult = [
+    { word: 'hazme un favor', definition: 'do me a favour' },
+    { word: 'que asco', definition: 'how disgusting' }
+  ];
+  // Act
+  let actualResult = TextParser.parseFileContentIntoTranslations(sample);
+  // Assert
+  expect(actualResult).toEqual(expectedResult);
+});

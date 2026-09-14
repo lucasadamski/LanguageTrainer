@@ -46,6 +46,7 @@ function splitDefinitionsBySeparator(definition) {
     if(definition.includes(',')) {
         return definition.split(',').map(n => n.trim());
     }
+    
     return [definition];
 }
 
@@ -93,7 +94,7 @@ function normalizeSpecialCharacterForWord(word) {
 }
 
 function sanitizeAnswer(answer) {
-    let lowerCaseTrimmed = answer.toLowerCase();
+    let lowerCaseTrimmed = answer.toLowerCase().trim();
     let result = normalizeSpecialCharacterForWord(lowerCaseTrimmed);
     return result;
 }
