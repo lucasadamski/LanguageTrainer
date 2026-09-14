@@ -10,6 +10,7 @@ window.onClickUploadFile = onClickUploadFile;
 let wordOutput;
 let answerButton = document.getElementById('answerButton');
 let answerData = document.getElementById('answerData');
+let startNewGameButton = document.getElementById('startNewGameButton');
 let responseFromAnswer;
 let statsObject;
 let userInput;
@@ -18,6 +19,7 @@ let soundUrl;
 
 let fileContent;
 
+let collectionOfTranslations;
 
 /*************************************
  * INITIALIZATION METHOD           ***
@@ -33,8 +35,23 @@ async function onClickUploadFile() {
 
     fileContent = await FileUploader.uploadFile();
 
-    let collectionOfTranslations = TextParser.parseFileContentIntoTranslations(fileContent);
+    collectionOfTranslations = TextParser.parseFileContentIntoTranslations(fileContent);
     
+    
+    Output.drawFileContent(collectionOfTranslations);   
+}
+
+startNewGameButton.onclick = () => {
+    // TODO 
+    // get selected array 
+    let selectedIdsArray = Output.getArrayOfAllCheckboxes();
+    // get sellect translations 
+    let selectedTranslations = TextParser.getSelectedTranslations(collectionOfTranslations, selectedIdsArray); 
+    // start new game with collection
+    Output.drawStats(statsObject);
+    Output.drawQuestion(wordOutput);
+    Output.drawVideo(videoUrl);
+    Output.playSound(soundUrl);
     GamePlayer.startNewGame(collectionOfTranslations);
     
     Stats.initializeStats(collectionOfTranslations);
@@ -46,12 +63,6 @@ async function onClickUploadFile() {
     
     wordOutput = GamePlayer.getWordGame();
     
-    Output.drawFileContent(collectionOfTranslations);
-    Output.drawStartGameButton();
-    Output.drawStats(statsObject);
-    Output.drawQuestion(wordOutput);
-    Output.drawVideo(videoUrl);
-    Output.playSound(soundUrl);
 }
 
 /*************************************

@@ -39,12 +39,13 @@ function drawFileContent(data) {
     });
 }
 
-function drawStartGameButton() {
-    let target = fileOut; 
-    const button = document.createElement('button');
-    button.innerText = 'Start New Game';
-    target.appendChild(button);
+function getArrayOfAllCheckboxes(){
+    if (!fileOut) return [];
+
+    return Array.from(fileOut.querySelectorAll('input[type="checkbox"]'))
 }
+
+
 
 function drawQuestion(data) {
     let target = questionOut;
@@ -92,5 +93,5 @@ function playSound(soundUrl) {
 
 export { 
     initializeDisplay, drawWordList, drawFileContent, drawQuestion, drawResponse,
-    drawNewGame, drawStats, drawVideo, playSound, drawStartGameButton
+    drawNewGame, drawStats, drawVideo, playSound, getArrayOfAllCheckboxes
  };
