@@ -1,8 +1,8 @@
 import * as TextParser from './textParser.js';
-import { uploadFile, readFileAsText } from './fileUploader.js';
+import * as FileUploader from './fileUploader.js';
 import * as Output from './output.js';
-import { startNewGame, getWordGame, provideUserInputToGameEngine } from './gamePlayer.js';
-import { initializeStats, provideStatsAnswer, getStatsObject } from './stats.js';
+import * as GamePlayer from './gamePlayer.js';
+import * as Stats from './stats.js';
 import * as MediaPlayer from './mediaPlayer.js';
 
 window.onClickUploadFile = onClickUploadFile;
@@ -16,13 +16,12 @@ let userInput;
 let videoUrl;
 let soundUrl;
 
-let fileContent = ''; 
+let fileContent;
 
-const translation = {
-    word: '', 
-    definition: ''
-}
 
+/*************************************
+ * INITIALIZATION METHOD           ***
+ ************************************/
 async function onClickUploadFile() {
     Output.initializeDisplay(
         document.getElementById('statsOutput'),
@@ -32,20 +31,20 @@ async function onClickUploadFile() {
         document.getElementById('videoOutput')
     );
 
-    fileContent = await uploadFile();
+    fileContent = await FileUploader.uploadFile();
 
     let collectionOfTranslations = TextParser.parseFileContentIntoTranslations(fileContent);
     
-    startNewGame(collectionOfTranslations);
+    GamePlayer.startNewGame(collectionOfTranslations);
     
-    initializeStats(collectionOfTranslations);
-    statsObject = getStatsObject();
+    Stats.initializeStats(collectionOfTranslations);
+    statsObject = Stats.getStatsObject();
     
     MediaPlayer.initializeMediaPlayer(statsObject)
     soundUrl = MediaPlayer.getSoundToPlay();
     videoUrl = MediaPlayer.getVideoToPlay();
     
-    wordOutput = getWordGame();
+    wordOutput = GamePlayer.getWordGame();
     
     Output.drawFileContent(collectionOfTranslations);
     Output.drawStats(statsObject);
@@ -62,12 +61,12 @@ async function onClickUploadFile() {
     userInput = answerData.value;
     
     // Provide data to engine
-    responseFromAnswer = provideUserInputToGameEngine(userInput);
-    provideStatsAnswer(responseFromAnswer);
+    responseFromAnswer = GamePlayer.provideUserInputToGameEngine(userInput);
+    Stats.provideStatsAnswer(responseFromAnswer);
 
     // Get data from engine 
-    wordOutput = getWordGame();
-    statsObject = getStatsObject();
+    wordOutput = GamePlayer.getWordGame();
+    statsObject = Stats.getStatsObject();
     
     // Play media 
     MediaPlayer.provideStatsToMediaPlayer(statsObject);
