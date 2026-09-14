@@ -42,8 +42,12 @@ function parseFileContentIntoTranslations(text) {
         .filter(n => n !== null);
 }
 
-function getSelectedTranslations(translation, selectionsArray) {
-    return []
+function getSelectedTranslations(allTranslations, selectionsArray) {
+    if(allTranslations == null || selectionsArray == null || 
+        allTranslations.length != selectionsArray.length ) {
+            console.error("Can't determine selected items");
+        }
+    return allTranslations.filter((n, index) => selectionsArray[index] === true);
 }
 
 
