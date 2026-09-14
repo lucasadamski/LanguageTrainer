@@ -42,6 +42,11 @@ function parseFileContentIntoTranslations(text) {
         .filter(n => n !== null);
 }
 
+function getSelectedTranslations(translation, selectionsArray) {
+    return []
+}
 
 
-export { lineDivider, wordDivider, parseFileContentIntoTranslations };
+
+export { lineDivider, wordDivider, parseFileContentIntoTranslations, 
+    getSelectedTranslations };

@@ -87,3 +87,22 @@ test('parses text into translations', () => {
   // Assert
   expect(actualResult).toEqual(expectedResult);
 });
+
+
+test('returns only those translations that have corressponding true element in other array', () => {
+  // Arange 
+   let allTranslations = [
+    { word: 'w0', definition: 'd0' },
+    { word: 'w1', definition: 'd1' },
+    { word: 'w2', definition: 'd2' }
+  ];
+  let correspondingArray = [ true, false, true ];
+  let expectedResult = [
+    { word: 'w0', definition: 'd0' },
+    { word: 'w2', definition: 'd2' }
+  ];
+  // Act
+  let actualResult = TextParser.getSelectedTranslations(allTranslations, correspondingArray);
+  // Assert
+  expect(actualResult).toEqual(expectedResult);
+});
