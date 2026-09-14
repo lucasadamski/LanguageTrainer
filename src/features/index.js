@@ -47,6 +47,7 @@ async function onClickUploadFile() {
     wordOutput = GamePlayer.getWordGame();
     
     Output.drawFileContent(collectionOfTranslations);
+    Output.drawStartGameButton();
     Output.drawStats(statsObject);
     Output.drawQuestion(wordOutput);
     Output.drawVideo(videoUrl);

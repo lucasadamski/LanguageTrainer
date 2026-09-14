@@ -25,14 +25,25 @@ function drawFileContent(data) {
     data.forEach(t => {
         target.innerHtml = '';
         const div = document.createElement('div');
+        const checkBox = document.createElement('input');
+        checkBox.type = 'checkbox';
+        checkBox.checked = true;
         const wordP  = document.createElement('p');
         wordP.textContent = `Word: ${t.word}`;
         const definitionP = document.createElement('p');
         definitionP.textContent = `Definition: ${t.definition}`;
+        div.appendChild(checkBox);
         div.appendChild(wordP);
         div.appendChild(definitionP);
         target.appendChild(div);
     });
+}
+
+function drawStartGameButton() {
+    let target = fileOut; 
+    const button = document.createElement('button');
+    button.innerText = 'Start New Game';
+    target.appendChild(button);
 }
 
 function drawQuestion(data) {
@@ -81,5 +92,5 @@ function playSound(soundUrl) {
 
 export { 
     initializeDisplay, drawWordList, drawFileContent, drawQuestion, drawResponse,
-    drawNewGame, drawStats, drawVideo, playSound
+    drawNewGame, drawStats, drawVideo, playSound, drawStartGameButton
  };
