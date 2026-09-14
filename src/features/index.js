@@ -1,4 +1,4 @@
-import { lineDivider, wordDivider } from './textParser.js';
+import * as TextParser from './textParser.js';
 import { uploadFile, readFileAsText } from './fileUploader.js';
 import * as Output from './output.js';
 import { startNewGame, getWordGame, provideUserInputToGameEngine } from './gamePlayer.js';
@@ -32,20 +32,9 @@ async function onClickUploadFile() {
         document.getElementById('videoOutput')
     );
 
-
     fileContent = await uploadFile();
 
-    let collectionOfLines = lineDivider(fileContent);
-    let collectionOfTranslations = collectionOfLines.map(line => {
-        let separatedLine = wordDivider(line);
-        if(separatedLine === undefined) return null;
-        return {
-            word: separatedLine[0],
-            definition: separatedLine[1]
-        };
-    })
-    .filter(n => n !== null);
-
+    let collectionOfTranslations = TextParser.parseFileContentIntoTranslations(fileContent);
     
     startNewGame(collectionOfTranslations);
     
