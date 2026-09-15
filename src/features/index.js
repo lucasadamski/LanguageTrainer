@@ -18,11 +18,10 @@ let videoUrl;
 let soundUrl;
 
 let fileContent;
-
 let collectionOfTranslations;
 
 /*************************************
- * INITIALIZATION METHOD           ***
+ *          Entry method           ***
  ************************************/
 async function onClickUploadFile() {
     Output.initializeDisplay(
@@ -33,40 +32,43 @@ async function onClickUploadFile() {
         document.getElementById('videoOutput')
     );
 
+    // Wait for user to upload file
     fileContent = await FileUploader.uploadFile();
-
+    // Parse file and write on screen
     collectionOfTranslations = TextParser.parseFileContentIntoTranslations(fileContent);
-    
-    
     Output.drawFileContent(collectionOfTranslations);   
 }
 
+/*************************************
+ *Initialization based on user input *
+ ************************************/
 startNewGameButton.onclick = () => {
-    // TODO 
-    // get selected array 
+    // Filter only selected translations
     let selectedIdsArray = Output.getArrayOfAllCheckboxes();
-    // get sellect translations 
-    let selectedTranslations = TextParser.getSelectedTranslations(collectionOfTranslations, selectedIdsArray); 
-    // start new game with collection
+    let selectedTranslations = TextParser.getSelectedTranslations(collectionOfTranslations, selectedIdsArray.map(n => n.checked)); 
+   
+    // Initialization
+    GamePlayer.startNewGame(selectedTranslations);
+    Stats.initializeStats(selectedTranslations);
+    statsObject = Stats.getStatsObject();
+    MediaPlayer.initializeMediaPlayer(statsObject)
+    
+    // First round, play first word
+    wordOutput = GamePlayer.getWordGame();
+    
+    // Draw
     Output.drawStats(statsObject);
     Output.drawQuestion(wordOutput);
     Output.drawVideo(videoUrl);
     Output.playSound(soundUrl);
-    GamePlayer.startNewGame(collectionOfTranslations);
     
-    Stats.initializeStats(collectionOfTranslations);
-    statsObject = Stats.getStatsObject();
-    
-    MediaPlayer.initializeMediaPlayer(statsObject)
+    // Play media
     soundUrl = MediaPlayer.getSoundToPlay();
     videoUrl = MediaPlayer.getVideoToPlay();
-    
-    wordOutput = GamePlayer.getWordGame();
-    
 }
 
 /*************************************
- * MAIN EVENT LOOP OF THE PROGRAM ***
+ *              Game loop          ***
  ************************************/
  answerButton.onclick = () => {
     // Get input from user
