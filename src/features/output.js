@@ -3,15 +3,17 @@ let responseOut;
 let questionOut; 
 let fileOut;
 let videoOut;
+let gameOverDiv; 
 
 
 function initializeDisplay(statsElement, responseElement, questionElement, 
-        fileListElement, videoElement) {
+        fileListElement, videoElement, gameOver) {
     statsOut = statsElement;
     responseOut = responseElement;
     questionOut = questionElement; 
     fileOut = fileListElement;
     videoOut = videoElement;
+    gameOverDiv = gameOver;
 
     responseOut.textContent = 'New game started';
 }
@@ -91,7 +93,32 @@ function playSound(soundUrl) {
     console.debug('Playing sound from ' + soundUrl);
 }
 
+function drawGameOverScreen() {
+    let target = gameOverDiv;
+    if (!target) return;
+
+    target.innerHTML = '';
+
+    const newGameButton = document.createElement('button');
+    newGameButton.id = 'newGameButton';
+    newGameButton.type = 'button';
+    newGameButton.textContent = 'New Game';
+
+    const restartGameButton = document.createElement('button');
+    restartGameButton.id = 'restartGameButton';
+    restartGameButton.type = 'button';
+    restartGameButton.textContent = 'Restart Game';
+
+    const statsSummary = statsOut;
+
+    target.appendChild(newGameButton);
+    target.appendChild(restartGameButton);
+    target.appendChild(statsOut);
+
+}
+
 export { 
     initializeDisplay, drawWordList, drawFileContent, drawQuestion, drawResponse,
-    drawNewGame, drawStats, drawVideo, playSound, getArrayOfAllCheckboxes
+    drawNewGame, drawStats, drawVideo, playSound, getArrayOfAllCheckboxes,
+    drawGameOverScreen
  };

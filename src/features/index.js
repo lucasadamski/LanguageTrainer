@@ -11,6 +11,7 @@ let wordOutput;
 let answerButton = document.getElementById('answerButton');
 let answerData = document.getElementById('answerData');
 let startNewGameButton = document.getElementById('startNewGameButton');
+let endGameButton = document.getElementById('endGameButton');
 let responseFromAnswer;
 let statsObject;
 let userInput;
@@ -29,7 +30,8 @@ async function onClickUploadFile() {
         document.getElementById('responseOutput'),
         document.getElementById('questionOutput'),
         document.getElementById('fileOutput'),
-        document.getElementById('videoOutput')
+        document.getElementById('videoOutput'),
+        document.getElementById('gameOver')
     );
 
     // Wait for user to upload file
@@ -96,8 +98,10 @@ startNewGameButton.onclick = () => {
 
     // Check if game is over
     if(wordOutput == null) {
-        //endGame.click();
-            //Output.hideCurrentScreen();
-            //Output.drawGameOverScreen();
+        endGameButton.onclick();
     }
+}
+
+endGameButton.onclick = () => {
+    Output.drawGameOverScreen();
 }
