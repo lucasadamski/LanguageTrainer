@@ -94,4 +94,10 @@ startNewGameButton.onclick = () => {
     Output.drawVideo(videoUrl);
     Output.playSound(soundUrl);
 
+    // Check if game is over
+    if(wordOutput == null) {
+        //endGame.click();
+            //Output.hideCurrentScreen();
+            //Output.drawGameOverScreen();
+    }
 }
