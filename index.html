@@ -7,35 +7,31 @@
     <title>Language Trainer</title>
 </head>
 <body>
-    <input type="file" id="fileInput" accept=".txt">
-    
-    <button id="buttonUploadFile" onclick="onClickUploadFile()">Upload File</button>
-    
-    <div class="container">
-        <div class="left-col">
-            <div id="mainMenuScreen">
-                <div id="fileOutput">FileOutput</div>
-                <button id="startNewGameButton"> Start New Game </button>    
-            </div>
-            <div id="gamePlayerScreen">
-                <div id="statsOutput">Statistics</div>
-                <div id="questionOutput">Question Output</div>
-                <div id="inputAnswer">
-                    <input type="text" id="answerData"></input>
-                    <button id="answerButton">Check</button> 
-                </div>
-                <div id="responseOutput">ResponseOutput</div>
-                <div id="videoOutput"></div>
-                <button id="endGameButton">End Game</button>
-            </div>
-            <div id="gameOverScreen">
-                <button id="newGameButton">New Game</button>
-                <button id="restartGameButton">Restart Game</button>
-            </div>
-        </div>
-        <div class="right-col">
-        </div>
+    <div class="screen">
     </div>
+    
+    <div id="mainMenuScreen" class="screen">
+        <input type="file" id="fileInput" accept=".txt">
+        <button id="buttonUploadFile" onclick="onClickUploadFile()">Upload File</button>
+        <div id="fileOutput">FileOutput</div>
+        <button id="startNewGameButton"> Start New Game </button>    
+    </div>
+    <div id="gamePlayerScreen" class="screen hidden">
+        <div id="statsOutput">Statistics</div>
+        <div id="questionOutput">Question Output</div>
+        <div id="inputAnswer">
+            <input type="text" id="answerData"></input>
+            <button id="answerButton">Check</button> 
+        </div>
+        <div id="responseOutput">ResponseOutput</div>
+        <div id="videoOutput"></div>
+        <button id="endGameButton">End Game</button>
+    </div>
+    <div id="gameOverScreen" class="screen hidden">
+        <button id="newGameButton">New Game</button>
+        <button id="restartGameButton">Restart Game</button>
+    </div>
+ 
     
     <script type="module" src="src/features/index.js"></script>
 </body>

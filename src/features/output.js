@@ -21,9 +21,6 @@ function initializeDisplay(statsElement, responseElement, questionElement,
     gamePlayerScreen = gamePlayerScr;
 
     responseOut.textContent = 'New game started';
-
-    toggleGamePlayerScreen();
-    toggleGameOverScreen();
 }
 
 function drawWordList(collection) {
@@ -89,7 +86,7 @@ function drawVideo(videoUrl) {
     video.src = videoUrl;
     video.muted = true;
     video.autoplay = true;
-    video.controls = true;
+    video.controls = false;
     target.appendChild(video);
     video.play();
     console.debug('Playing video from ' + videoUrl);

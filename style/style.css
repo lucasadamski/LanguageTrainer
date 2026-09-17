@@ -1,21 +1,16 @@
-.container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-}
 
 .hidden {
     visibility: hidden;
 }
 
-.mainMenuScreen {
-    display: block;
+
+
+#videoOutput video{
+    width: 400px;
+
 }
 
-.gamePlayScreen {
+.screen {
     display: block;
+    position: fixed;
 }
-
-.gameOverScreen {
-    display: block;
-}
-
