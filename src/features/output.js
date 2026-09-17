@@ -3,19 +3,29 @@ let responseOut;
 let questionOut; 
 let fileOut;
 let videoOut;
-let gameOverDiv; 
+let gameOverScreen; 
+let mainMenuScreen;
+let gamePlayerScreen;
+
+
 
 
 function initializeDisplay(statsElement, responseElement, questionElement, 
-        fileListElement, videoElement, gameOver) {
+        fileListElement, videoElement, gameOverScr, mainMenuScr,
+        gamePlayerScr) {
     statsOut = statsElement;
     responseOut = responseElement;
     questionOut = questionElement; 
     fileOut = fileListElement;
     videoOut = videoElement;
-    gameOverDiv = gameOver;
+    gameOverScreen = gameOverScr;
+    mainMenuScreen = mainMenuScr;
+    gamePlayerScreen = gamePlayerScr;
 
     responseOut.textContent = 'New game started';
+
+    toggleGamePlayerScreen();
+    toggleGameOverScreen();
 }
 
 function drawWordList(collection) {
@@ -93,32 +103,21 @@ function playSound(soundUrl) {
     console.debug('Playing sound from ' + soundUrl);
 }
 
-function drawGameOverScreen() {
-    let target = gameOverDiv;
-    if (!target) return;
+function toggleGameOverScreen() {
+    gameOverScreen.classList.toggle('hidden');
+}
 
-    target.innerHTML = '';
+function toggleGamePlayerScreen() {
+    gameOverScreen.classList.toggle('hidden');
+}
 
-    const newGameButton = document.createElement('button');
-    newGameButton.id = 'newGameButton';
-    newGameButton.type = 'button';
-    newGameButton.textContent = 'New Game';
-
-    const restartGameButton = document.createElement('button');
-    restartGameButton.id = 'restartGameButton';
-    restartGameButton.type = 'button';
-    restartGameButton.textContent = 'Restart Game';
-
-    const statsSummary = statsOut;
-
-    target.appendChild(newGameButton);
-    target.appendChild(restartGameButton);
-    target.appendChild(statsOut);
-
+function toggleMainMenuScreen() {
+    console.debug('toggled main menu hidden');
+    gameOverScreen.classList.toggle('hidden');
 }
 
 export { 
     initializeDisplay, drawWordList, drawFileContent, drawQuestion, drawResponse,
     drawNewGame, drawStats, drawVideo, playSound, getArrayOfAllCheckboxes,
-    drawGameOverScreen
+    toggleGameOverScreen, toggleGamePlayerScreen, toggleMainMenuScreen
  };

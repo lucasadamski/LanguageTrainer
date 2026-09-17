@@ -13,21 +13,27 @@
     
     <div class="container">
         <div class="left-col">
-            <div id="fileOutput">FileOutput</div>
-            <button id="startNewGameButton"> Start New Game </button>
-            <div id="statsOutput">Statistics</div>
-            <div id="questionOutput">Question Output</div>
-            <div id="inputAnswer">
-                <input type="text" id="answerData"></input>
-                <button id="answerButton">Check</button> 
+            <div id="mainMenuScreen">
+                <div id="fileOutput">FileOutput</div>
+                <button id="startNewGameButton"> Start New Game </button>    
             </div>
-            <div id="gameOver">
+            <div id="gamePlayerScreen" class="">
+                <div id="statsOutput">Statistics</div>
+                <div id="questionOutput">Question Output</div>
+                <div id="inputAnswer">
+                    <input type="text" id="answerData"></input>
+                    <button id="answerButton">Check</button> 
+                </div>
+                <div id="responseOutput">ResponseOutput</div>
+                <div id="videoOutput"></div>
                 <button id="endGameButton">End Game</button>
+            </div>
+            <div id="gameOverScreen" class="">
+                <button id="newGameButton">New Game</button>
+                <button id="restartGameButton">Restart Game</button>
             </div>
         </div>
         <div class="right-col">
-            <div id="responseOutput">ResponseOutput</div>
-            <div id="videoOutput"></div>
         </div>
     </div>
     

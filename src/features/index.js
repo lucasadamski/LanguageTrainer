@@ -8,10 +8,16 @@ import * as MediaPlayer from './mediaPlayer.js';
 window.onClickUploadFile = onClickUploadFile;
 
 let wordOutput;
-let answerButton = document.getElementById('answerButton');
 let answerData = document.getElementById('answerData');
+
+// Buttons input
+let answerButton = document.getElementById('answerButton');
 let startNewGameButton = document.getElementById('startNewGameButton');
 let endGameButton = document.getElementById('endGameButton');
+let newGameButton = document.getElementById('newGameButton');
+let restartGameButton = document.getElementById('restartGameButton');
+
+
 let responseFromAnswer;
 let statsObject;
 let userInput;
@@ -31,8 +37,11 @@ async function onClickUploadFile() {
         document.getElementById('questionOutput'),
         document.getElementById('fileOutput'),
         document.getElementById('videoOutput'),
-        document.getElementById('gameOver')
+        document.getElementById('gameOverScreen'),
+        document.getElementById('mainMenuScreen'),
+        document.getElementById('gamePlayerScreen')
     );
+
 
     // Wait for user to upload file
     fileContent = await FileUploader.uploadFile();
@@ -45,6 +54,10 @@ async function onClickUploadFile() {
  *Initialization based on user input *
  ************************************/
 startNewGameButton.onclick = () => {
+    // Show GamePlayerScreen only
+    Output.toggleMainMenuScreen();
+    Output.toggleGamePlayerScreen();
+
     // Filter only selected translations
     let selectedIdsArray = Output.getArrayOfAllCheckboxes();
     let selectedTranslations = TextParser.getSelectedTranslations(collectionOfTranslations, selectedIdsArray.map(n => n.checked)); 
@@ -103,5 +116,10 @@ startNewGameButton.onclick = () => {
 }
 
 endGameButton.onclick = () => {
-    Output.drawGameOverScreen();
+    Output.toggleGamePlayerScreen();
+}
+
+newGameButton.onclick = () => {
+    console.debug('new game button clicked');
+    startNewGameButton.click();
 }
