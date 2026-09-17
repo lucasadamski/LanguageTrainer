@@ -8,8 +8,6 @@ let mainMenuScreen;
 let gamePlayerScreen;
 
 
-
-
 function initializeDisplay(statsElement, responseElement, questionElement, 
         fileListElement, videoElement, gameOverScr, mainMenuScr,
         gamePlayerScr) {
@@ -104,17 +102,20 @@ function playSound(soundUrl) {
 }
 
 function toggleGameOverScreen() {
+    console.debug('toggle hidden gameOverScreen');
     gameOverScreen.classList.toggle('hidden');
 }
 
 function toggleGamePlayerScreen() {
-    gameOverScreen.classList.toggle('hidden');
+    console.debug('toggle hidden gamePlayerScreen');
+    gamePlayerScreen.classList.toggle('hidden');
 }
 
 function toggleMainMenuScreen() {
-    console.debug('toggled main menu hidden');
-    gameOverScreen.classList.toggle('hidden');
+    console.debug('toggle hidden mainMenuScreen');
+    mainMenuScreen.classList.toggle('hidden');
 }
+
 
 export { 
     initializeDisplay, drawWordList, drawFileContent, drawQuestion, drawResponse,

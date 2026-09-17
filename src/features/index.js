@@ -117,9 +117,9 @@ startNewGameButton.onclick = () => {
 
 endGameButton.onclick = () => {
     Output.toggleGamePlayerScreen();
+    Output.toggleGameOverScreen();
 }
 
 newGameButton.onclick = () => {
-    console.debug('new game button clicked');
     startNewGameButton.click();
 }
