@@ -29,8 +29,8 @@ function drawWordList(collection) {
 
 function drawFileContent(data) {
     let target = fileOut;
-    data.forEach(t => {
-        target.innerHtml = '';
+    target.innerHTML = '';
+    data.forEach(t => {  
         const div = document.createElement('div');
         const checkBox = document.createElement('input');
         checkBox.type = 'checkbox';
@@ -99,25 +99,39 @@ function playSound(soundUrl) {
 }
 
 // show hide screen
-
-function toggleGameOverScreen() {
-    console.debug('toggle hidden gameOverScreen');
-    gameOverScreen.classList.toggle('hidden');
+function showGamePlayerScreen() {
+    if(gamePlayerScreen.classList.contains('hidden'))
+        gamePlayerScreen.classList.remove('hidden');
 }
 
-function toggleGamePlayerScreen() {
-    console.debug('toggle hidden gamePlayerScreen');
-    gamePlayerScreen.classList.toggle('hidden');
+function hideGamePlayerScreen() {
+    if(!gamePlayerScreen.classList.contains('hidden'))
+        gamePlayerScreen.classList.add('hidden');
 }
 
-function toggleMainMenuScreen() {
-    console.debug('toggle hidden mainMenuScreen');
-    mainMenuScreen.classList.toggle('hidden');
+function showMainMenuScreen() {
+    if(mainMenuScreen.classList.contains('hidden'))
+        mainMenuScreen.classList.remove('hidden');
 }
 
+function hideMainMenuScreen() {
+    if(!mainMenuScreen.classList.contains('hidden'))
+        mainMenuScreen.classList.add('hidden');
+}
+
+function showGameOverScreen() {
+    if(gameOverScreen.classList.contains('hidden'))
+        gameOverScreen.classList.remove('hidden');
+}
+
+function hideGameOverScreen() {
+    if(!gameOverScreen.classList.contains('hidden'))
+        gameOverScreen.classList.add('hidden');
+}
 
 export { 
     initializeDisplay, drawWordList, drawFileContent, drawQuestion, drawResponse,
-    drawNewGame, drawStats, drawVideo, playSound, getArrayOfAllCheckboxes,
-    toggleGameOverScreen, toggleGamePlayerScreen, toggleMainMenuScreen
+    drawNewGame, drawStats, drawVideo, playSound, getArrayOfAllCheckboxes, 
+    showGamePlayerScreen, hideGamePlayerScreen, showMainMenuScreen, hideMainMenuScreen, 
+    showGameOverScreen, hideGameOverScreen
  };

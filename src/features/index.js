@@ -31,6 +31,7 @@ let collectionOfTranslations;
  *          Entry method           ***
  ************************************/
 async function onClickUploadFile() {
+    debugger;
     Output.initializeDisplay(
         document.getElementById('statsOutput'),
         document.getElementById('responseOutput'),
@@ -41,7 +42,11 @@ async function onClickUploadFile() {
         document.getElementById('mainMenuScreen'),
         document.getElementById('gamePlayerScreen')
     );
-
+    
+    
+    Output.hideGameOverScreen();
+    Output.showMainMenuScreen();
+    Output.hideGamePlayerScreen();
 
     // Wait for user to upload file
     fileContent = await FileUploader.uploadFile();
@@ -55,8 +60,10 @@ async function onClickUploadFile() {
  ************************************/
 startNewGameButton.onclick = () => {
     // Show GamePlayerScreen only
-    Output.toggleMainMenuScreen();
-    Output.toggleGamePlayerScreen();
+    Output.hideGameOverScreen();
+    Output.hideMainMenuScreen();
+    Output.showGamePlayerScreen();
+
 
     // Filter only selected translations
     let selectedIdsArray = Output.getArrayOfAllCheckboxes();
@@ -116,10 +123,28 @@ startNewGameButton.onclick = () => {
 }
 
 endGameButton.onclick = () => {
-    Output.toggleGamePlayerScreen();
-    Output.toggleGameOverScreen();
+    Output.hideGamePlayerScreen();
+    Output.showGameOverScreen();
+}
+
+restartGameButton.onclick = () => {
+    resetUserInputData();
+    startNewGameButton.click();
 }
 
 newGameButton.onclick = () => {
-    startNewGameButton.click();
+    resetUserInputData();
+    resetUploadedData();
+    onClickUploadFile();
+}
+
+function resetUserInputData() {
+    responseFromAnswer = '';
+    statsObject = '';
+    userInput = '';
+}
+
+function resetUploadedData() {
+    fileContent = '';
+    collectionOfTranslations = '';
 }
