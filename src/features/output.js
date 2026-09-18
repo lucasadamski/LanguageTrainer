@@ -6,11 +6,12 @@ let videoOut;
 let gameOverScreen; 
 let mainMenuScreen;
 let gamePlayerScreen;
+let gameOverStats;
 
 
 function initializeDisplay(statsElement, responseElement, questionElement, 
         fileListElement, videoElement, gameOverScr, mainMenuScr,
-        gamePlayerScr) {
+        gamePlayerScr, gameOverSts) {
     statsOut = statsElement;
     responseOut = responseElement;
     questionOut = questionElement; 
@@ -19,6 +20,7 @@ function initializeDisplay(statsElement, responseElement, questionElement,
     gameOverScreen = gameOverScr;
     mainMenuScreen = mainMenuScr;
     gamePlayerScreen = gamePlayerScr;
+    gameOverStats = gameOverSts;
 
     responseOut.textContent = 'New game started';
 }
@@ -77,6 +79,7 @@ function drawNewGame() {
 function drawStats(data) {
     let target = statsOut;
     target.textContent = `Total: ${data.total}, OK: ${data.ok}, Bad: ${data.bad}, Points: ${data.points}, OK in row: ${data.okInRow}, Bad in row: ${data.badInRow}`;
+    gameOverStats.textContent = target.textContent;
 }
 
 function drawVideo(videoUrl) {

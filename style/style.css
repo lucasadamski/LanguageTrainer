@@ -1,13 +1,15 @@
+.screen {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+}
 
 .hidden {
     visibility: hidden;
 }
 
-
-
 #videoOutput video{
     width: 400px;
-
 }
 
 .screen {

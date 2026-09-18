@@ -40,7 +40,8 @@ async function onClickUploadFile() {
         document.getElementById('videoOutput'),
         document.getElementById('gameOverScreen'),
         document.getElementById('mainMenuScreen'),
-        document.getElementById('gamePlayerScreen')
+        document.getElementById('gamePlayerScreen'),
+        document.getElementById('gameOverStats')
     );
     
     
