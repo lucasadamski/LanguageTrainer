@@ -33,17 +33,33 @@ function drawFileContent(data) {
     let target = fileOut;
     target.innerHTML = '';
     data.forEach(t => {  
-        const div = document.createElement('div');
+          const div = document.createElement('div');
+        div.className = 'word-row';
+
+        const text = document.createElement('div');
+        text.className = 'word-text';
+
+        const wordSpan = document.createElement('span');
+        wordSpan.textContent = t.word;
+
+        const defSpan = document.createElement('span');
+        defSpan.textContent = t.definition;
+        
+        const dotsSpan = document.createElement('span');
+        dotsSpan.textContent = '................................';
+
+        text.appendChild(wordSpan);
+        text.appendChild(dotsSpan);
+        text.appendChild(defSpan);
+
+
         const checkBox = document.createElement('input');
         checkBox.type = 'checkbox';
         checkBox.checked = true;
-        const wordP  = document.createElement('p');
-        wordP.textContent = `Word: ${t.word}`;
-        const definitionP = document.createElement('p');
-        definitionP.textContent = `Definition: ${t.definition}`;
+
+        div.appendChild(text);
         div.appendChild(checkBox);
-        div.appendChild(wordP);
-        div.appendChild(definitionP);
+
         target.appendChild(div);
     });
 }

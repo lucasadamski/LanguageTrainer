@@ -16,3 +16,25 @@
     display: block;
     position: fixed;
 }
+
+
+.word-row {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  column-gap: 1rem;
+  align-items: center;
+}
+
+.word-text {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.word-text span:first-child {
+  font-weight: 600;
+}
+
+.word-text span:last-child {
+  margin-left: 1rem;
+}
