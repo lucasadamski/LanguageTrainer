@@ -98,6 +98,8 @@ function playSound(soundUrl) {
     console.debug('Playing sound from ' + soundUrl);
 }
 
+// show hide screen
+
 function toggleGameOverScreen() {
     console.debug('toggle hidden gameOverScreen');
     gameOverScreen.classList.toggle('hidden');
