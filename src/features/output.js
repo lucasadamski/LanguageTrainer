@@ -74,7 +74,13 @@ function selectAllTranslations() {
 }
 
 function deselectAllTranslations() {
-
+    let rows = fileOut.querySelectorAll('.word-row')
+    rows.forEach(row => {
+        let checkBox = row.querySelector('input[type="checkbox"]');
+        if(checkBox.checked) {
+            checkBox.checked = false;
+        }
+    })
 }
 
 function getArrayOfAllCheckboxes(){

@@ -17,6 +17,7 @@ let endGameButton = document.getElementById('endGameButton');
 let newGameButton = document.getElementById('newGameButton');
 let restartGameButton = document.getElementById('restartGameButton');
 let selectAllButton = document.getElementById('selectAllButton');
+let deselectAllButton = document.getElementById('deselectAllButton');
 
 
 let responseFromAnswer;
@@ -142,6 +143,11 @@ newGameButton.onclick = () => {
 selectAllButton.onclick = () => {
     Output.selectAllTranslations();
 }
+
+deselectAllButton.onclick = () => {
+    Output.deselectAllTranslations();
+}
+
 
 function resetUserInputData() {
     responseFromAnswer = '';
