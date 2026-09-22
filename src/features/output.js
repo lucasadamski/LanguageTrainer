@@ -89,7 +89,7 @@ function drawResponse(data) {
 
 function drawNewGame() {
     let target = responseOut;
-    target.textContent = 'New ganme started';
+    target.textContent = 'New game started';
 }
 
 function drawStats(data) {
