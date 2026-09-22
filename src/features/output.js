@@ -59,9 +59,22 @@ function drawFileContent(data) {
 
         div.appendChild(text);
         div.appendChild(checkBox);
-
         target.appendChild(div);
     });
+}
+
+function selectAllTranslations() {
+    let rows = fileOut.querySelectorAll('.word-row')
+    rows.forEach(row => {
+        let checkBox = row.querySelector('input[type="checkbox"]');
+        if(!checkBox.checked) {
+            checkBox.checked = true;
+        }
+    })
+}
+
+function deselectAllTranslations() {
+
 }
 
 function getArrayOfAllCheckboxes(){
@@ -152,5 +165,5 @@ export {
     initializeDisplay, drawWordList, drawFileContent, drawQuestion, drawResponse,
     drawNewGame, drawStats, drawVideo, playSound, getArrayOfAllCheckboxes, 
     showGamePlayerScreen, hideGamePlayerScreen, showMainMenuScreen, hideMainMenuScreen, 
-    showGameOverScreen, hideGameOverScreen
+    showGameOverScreen, hideGameOverScreen, selectAllTranslations, deselectAllTranslations
  };

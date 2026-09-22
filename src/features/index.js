@@ -16,6 +16,7 @@ let startNewGameButton = document.getElementById('startNewGameButton');
 let endGameButton = document.getElementById('endGameButton');
 let newGameButton = document.getElementById('newGameButton');
 let restartGameButton = document.getElementById('restartGameButton');
+let selectAllButton = document.getElementById('selectAllButton');
 
 
 let responseFromAnswer;
@@ -31,7 +32,6 @@ let collectionOfTranslations;
  *          Entry method           ***
  ************************************/
 async function onClickUploadFile() {
-    debugger;
     Output.initializeDisplay(
         document.getElementById('statsOutput'),
         document.getElementById('responseOutput'),
@@ -137,6 +137,10 @@ newGameButton.onclick = () => {
     resetUserInputData();
     resetUploadedData();
     onClickUploadFile();
+}
+
+selectAllButton.onclick = () => {
+    Output.selectAllTranslations();
 }
 
 function resetUserInputData() {
