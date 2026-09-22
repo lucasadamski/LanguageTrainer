@@ -46,10 +46,7 @@ async function onClickUploadFile() {
         document.getElementById('settingsScreen')
     );
     
-    
-    Output.hideGameOverScreen();
     Output.hideMainMenuScreen();
-    Output.hideGamePlayerScreen();
     Output.showSettingsScreen();
 
     // Wait for user to upload file
@@ -66,6 +63,7 @@ startNewGameButton.onclick = () => {
     // Show GamePlayerScreen only
     Output.hideGameOverScreen();
     Output.hideMainMenuScreen();
+    Output.hideSettingsScreen();
     Output.showGamePlayerScreen();
 
 
