@@ -6,12 +6,13 @@ let videoOut;
 let gameOverScreen; 
 let mainMenuScreen;
 let gamePlayerScreen;
+let settingsScreen;
 let gameOverStats;
 
 
 function initializeDisplay(statsElement, responseElement, questionElement, 
         fileListElement, videoElement, gameOverScr, mainMenuScr,
-        gamePlayerScr, gameOverSts) {
+        gamePlayerScr, gameOverSts, settingsScrn) {
     statsOut = statsElement;
     responseOut = responseElement;
     questionOut = questionElement; 
@@ -21,6 +22,7 @@ function initializeDisplay(statsElement, responseElement, questionElement,
     mainMenuScreen = mainMenuScr;
     gamePlayerScreen = gamePlayerScr;
     gameOverStats = gameOverSts;
+    settingsScreen = settingsScrn
 
     responseOut.textContent = 'New game started';
 }
@@ -167,9 +169,20 @@ function hideGameOverScreen() {
         gameOverScreen.classList.add('hidden');
 }
 
+function showSettingsScreen() {
+    if(settingsScreen.classList.contains('hidden'))
+        settingsScreen.classList.remove('hidden');
+}
+
+function hideSettingsScreen() {
+    if(!settingsScreen.classList.contains('hidden'))
+        settingsScreen.classList.add('hidden');
+}
+
 export { 
     initializeDisplay, drawWordList, drawFileContent, drawQuestion, drawResponse,
     drawNewGame, drawStats, drawVideo, playSound, getArrayOfAllCheckboxes, 
     showGamePlayerScreen, hideGamePlayerScreen, showMainMenuScreen, hideMainMenuScreen, 
-    showGameOverScreen, hideGameOverScreen, selectAllTranslations, deselectAllTranslations
+    showGameOverScreen, hideGameOverScreen, selectAllTranslations, deselectAllTranslations,
+    showSettingsScreen, hideSettingsScreen
  };

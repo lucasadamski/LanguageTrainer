@@ -42,13 +42,15 @@ async function onClickUploadFile() {
         document.getElementById('gameOverScreen'),
         document.getElementById('mainMenuScreen'),
         document.getElementById('gamePlayerScreen'),
-        document.getElementById('gameOverStats')
+        document.getElementById('gameOverStats'),
+        document.getElementById('settingsScreen')
     );
     
     
     Output.hideGameOverScreen();
-    Output.showMainMenuScreen();
+    Output.hideMainMenuScreen();
     Output.hideGamePlayerScreen();
+    Output.showSettingsScreen();
 
     // Wait for user to upload file
     fileContent = await FileUploader.uploadFile();
