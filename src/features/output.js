@@ -22,7 +22,7 @@ function initializeDisplay(statsElement, responseElement, questionElement,
     mainMenuScreen = mainMenuScr;
     gamePlayerScreen = gamePlayerScr;
     gameOverStats = gameOverSts;
-    settingsScreen = settingsScrn
+    settingsScreen = settingsScrn;
 
     responseOut.textContent = 'New game started';
 }
@@ -62,7 +62,16 @@ function drawFileContent(data) {
         div.appendChild(text);
         div.appendChild(checkBox);
         target.appendChild(div);
+
+        makeDivClickableToSelectCheckbox(div, checkBox);
     });
+}
+
+function makeDivClickableToSelectCheckbox(div, checkbox) {
+    div.addEventListener('click', () => {
+        checkbox.checked = !checkbox.checked;
+    })
+    
 }
 
 function selectAllTranslations() {

@@ -38,3 +38,12 @@
 .word-text span:last-child {
   margin-left: 1rem;
 }
+
+
+.word-row:hover {
+  background: #410b9f;
+}
+
+.word-row input[type="checkbox"] {
+  pointer-events: none;
+}
