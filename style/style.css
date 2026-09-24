@@ -1,22 +1,16 @@
 .screen {
-  position: fixed;
+  position: relative;
   left: 50%;
   transform: translateX(-50%);
 }
 
 .hidden {
-    visibility: hidden;
+    display: none;
 }
 
 #videoOutput video{
     width: 400px;
 }
-
-.screen {
-    display: block;
-    position: fixed;
-}
-
 
 .word-row {
   display: grid;
