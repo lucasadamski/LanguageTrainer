@@ -50,7 +50,16 @@ function getSelectedTranslations(allTranslations, selectionsArray) {
     return allTranslations.filter((n, index) => selectionsArray[index] === true);
 }
 
+function swapWordsWithDefinitions(translations) {
+    return translations.map(n => {
+        return {
+            word: n.definition, 
+            definition: n.word
+        }
+    })
+}
+
 
 
 export { lineDivider, wordDivider, parseFileContentIntoTranslations, 
-    getSelectedTranslations };
+    getSelectedTranslations, swapWordsWithDefinitions };

@@ -118,12 +118,12 @@ test('when swap() called, given correct translation, returns collections of swap
     { word: 'w2', definition: 'd2' }
   ];
   let expectedResult = [    
-    { word: 'd1', definition: 'w1' },
     { word: 'd0', definition: 'w0' },
+    { word: 'd1', definition: 'w1' },
     { word: 'd2', definition: 'w2' }
   ];
   // Act
-  let actualResult = TextParser.getSelectedTranslations(initialTranslations);
+  let actualResult = TextParser.swapWordsWithDefinitions(initialTranslations);
   // Assert
   expect(actualResult).toEqual(expectedResult);
 });
