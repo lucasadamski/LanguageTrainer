@@ -52,7 +52,7 @@ function splitDefinitionsBySeparator(definition) {
 
 function removePrefixesFromDefinitions(definitionsArray) {
     if(definitionsArray == null || definitionsArray == undefined) return null;
-    let prefixes = ['la', 'el', 'los', 'las', 'un', 'uno', 'una'];
+let prefixes = ['la', 'el', 'los', 'las', 'les', 'un', 'uno', 'una', 'the', 'an', 'a', 'to'];
     let result = definitionsArray.map(definition => {
         let defArr = definition.trim().split(' ');
         if (defArr.length > 1) {
@@ -84,7 +84,11 @@ function normalizeSpecialCharacterForWord(word) {
             'ü': 'u',
             'ñ': 'n',
             '¿': '',
-            '¡': ''
+            '¡': '',
+            '!': '',
+            '?': '',
+            ',': '',
+            '.': ''
         };
 
     return word

@@ -227,5 +227,21 @@ test('ignore spanish letters for answers', () => {
     expect(response).toBe(true);
   });
 
+    test(`Given definition contains '?', when answer omits '?', the answer is correct `, () => {
+    // Arrange
+    let testCollection = [ 
+      {word: 'something', definition: 'test?' }];
+    startNewGame(testCollection);
+    let question = getWordGame();
+    let answer = 'test';
+
+    // Act
+    let response = provideUserInputToGameEngine(answer);
+  
+    // Assert
+    expect(response).toBe(true);
+  });
+
+
 
 
