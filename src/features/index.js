@@ -18,6 +18,7 @@ let newGameButton = document.getElementById('newGameButton');
 let restartGameButton = document.getElementById('restartGameButton');
 let selectAllButton = document.getElementById('selectAllButton');
 let deselectAllButton = document.getElementById('deselectAllButton');
+let swapWordsWithDefinitionsButton = document.getElementById('swapWordsWithDefinitionsButton');
 
 
 let responseFromAnswer;
@@ -146,6 +147,12 @@ selectAllButton.onclick = () => {
 
 deselectAllButton.onclick = () => {
     Output.deselectAllTranslations();
+}
+
+swapWordsWithDefinitionsButton.onclick = () => {
+    let swapped = TextParser.swapWordsWithDefinitions(collectionOfTranslations);
+    collectionOfTranslations = swapped;
+    Output.drawFileContent(collectionOfTranslations);
 }
 
 
