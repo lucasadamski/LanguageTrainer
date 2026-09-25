@@ -106,3 +106,24 @@ test('returns only those translations that have corressponding true element in o
   // Assert
   expect(actualResult).toEqual(expectedResult);
 });
+
+/* Swap translations */
+
+
+test('when swap() called, given correct translation, returns collections of swapped elements', () => {
+  // Arange 
+   let initialTranslations = [
+    { word: 'w0', definition: 'd0' },
+    { word: 'w1', definition: 'd1' },
+    { word: 'w2', definition: 'd2' }
+  ];
+  let expectedResult = [    
+    { word: 'd1', definition: 'w1' },
+    { word: 'd0', definition: 'w0' },
+    { word: 'd2', definition: 'w2' }
+  ];
+  // Act
+  let actualResult = TextParser.getSelectedTranslations(initialTranslations);
+  // Assert
+  expect(actualResult).toEqual(expectedResult);
+});
