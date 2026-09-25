@@ -197,3 +197,35 @@ test('ignore spanish letters for answers', () => {
     expect(response).toBe(true);
   });
 
+  test(`Given definition contains word 'to', when answer omits 'to', the answer is correct `, () => {
+    // Arrange
+    let testCollection = [ 
+      {word: 'something', definition: 'to test' }];
+    startNewGame(testCollection);
+    let question = getWordGame();
+    let answer = 'test';
+
+    // Act
+    let response = provideUserInputToGameEngine(answer);
+  
+    // Assert
+    expect(response).toBe(true);
+  });
+
+    test(`Given definition contains word 'an', when answer omits 'an', the answer is correct `, () => {
+    // Arrange
+    let testCollection = [ 
+      {word: 'something', definition: 'an array' }];
+    startNewGame(testCollection);
+    let question = getWordGame();
+    let answer = 'array';
+
+    // Act
+    let response = provideUserInputToGameEngine(answer);
+  
+    // Assert
+    expect(response).toBe(true);
+  });
+
+
+
