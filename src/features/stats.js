@@ -5,6 +5,8 @@ const statsObject = {
   points: 0,
   okInRow: 0,
   badInRow: 0,
+  maxOkInRow: 0,
+  maxBadInRow: 0,
   history: []
 };
 
@@ -19,6 +21,8 @@ function initializeStats(collection) {
   statsObject.points = 0;
   statsObject.okInRow = 0;
   statsObject.badInRow = 0;
+  statsObject.maxOkInRow = 0;
+  statsObject.maxBadInRow = 0;
   statsObject.history = [];
   return statsObject;
 }
@@ -30,12 +34,19 @@ function provideStatsAnswer(answer) {
     statsObject.ok++;
     statsObject.okInRow++;
     statsObject.badInRow = 0;
+    if(statsObject.okInRow > statsObject.maxOkInRow) {
+      statsObject.maxOkInRow = statsObject.okInRow;
+    } 
   }
   else {
     statsObject.bad++;
     statsObject.badInRow++;
     statsObject.okInRow = 0;
+    if(statsObject.badInRow > statsObject.maxBadInRow) {
+      statsObject.maxBadInRow = statsObject.badInRow;
+    }
   }
+
   return statsObject;
 }
 

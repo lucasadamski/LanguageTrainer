@@ -170,3 +170,39 @@ test('2 bad answers in row, 2 answers in a row bad', () => {
   expect(result.badInRow).toBe(2);
   expect(result.history).toEqual([true, true, true, false, false]);
 });
+
+
+/* Max answers in a row - used for game over screen */
+
+test('5 good answers in row, 2 answers in a row bad, 2 good in a row, 1 bad, then shows max correct answers in a row is 5, maxBadInARow is 2', () => {
+  // Arrange
+  const collectionOfTen = [
+    {word: '', definition: ''},
+    {word: '', definition: ''},
+    {word: '', definition: ''},
+    {word: '', definition: ''},
+    {word: '', definition: ''},
+    {word: '', definition: ''},
+    {word: '', definition: ''},
+    {word: '', definition: ''},
+    {word: '', definition: ''},
+    {word: '', definition: ''}
+  ]
+  let result = initializeStats(collectionOfTen);
+
+  // Act
+  result = provideStatsAnswer(true);
+  result = provideStatsAnswer(true);
+  result = provideStatsAnswer(true);
+  result = provideStatsAnswer(true);
+  result = provideStatsAnswer(true);
+  result = provideStatsAnswer(false);
+  result = provideStatsAnswer(false);
+  result = provideStatsAnswer(true);
+  result = provideStatsAnswer(true);
+  result = provideStatsAnswer(false);
+  
+  // Assert
+  expect(result.maxOkInRow).toBe(5);
+  expect(result.maxBadInRow).toBe(2);
+});
