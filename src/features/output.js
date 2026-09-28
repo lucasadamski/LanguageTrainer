@@ -125,7 +125,34 @@ function drawNewGame() {
 function drawStats(data) {
     let target = statsOut;
     target.textContent = `Total: ${data.total}, OK: ${data.ok}, Bad: ${data.bad}, Points: ${data.points}, OK in row: ${data.okInRow}, Bad in row: ${data.badInRow}`;
-    gameOverStats.textContent = target.textContent;
+    gameOverStats.innerHTML = (generateGameOverStats(data));
+}
+
+function generateGameOverStats(stats) {
+    return `<div class="stats-row">
+            <span>Total words: </span>
+            <span>${stats.total}</span>
+        </div>
+         <div class="stats-row">
+            <span>Good answers: </span>
+            <span>${stats.ok}</span>
+        </div>
+         <div class="stats-row">
+            <span>Bad answers: </span>
+            <span>${stats.bad}</span>
+        </div>
+         <div class="stats-row">
+            <span>Points: </span>
+            <span>${stats.points}</span>
+        </div>
+         <div class="stats-row">
+            <span>Good answers streak: </span>
+            <span>${stats.maxOkInRow}</span>
+        </div>
+         <div class="stats-row">
+            <span>Bad answers streak: </span>
+            <span>${stats.maxBadInRow}</span>
+        </div>`;
 }
 
 function drawVideo(videoUrl) {

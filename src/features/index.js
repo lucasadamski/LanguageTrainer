@@ -48,6 +48,10 @@ async function onClickUploadFile() {
     );
     
     Output.hideMainMenuScreen();
+    Output.hideGameOverScreen();
+    Output.hideMainMenuScreen();
+    Output.hideGamePlayerScreen();
+
     Output.showSettingsScreen();
 
     // Wait for user to upload file
