@@ -54,7 +54,7 @@ function drawFileContent(data) {
 
         const checkBox = document.createElement('input');
         checkBox.type = 'checkbox';
-        checkBox.checked = true;
+        checkBox.checked = false;
 
         div.appendChild(text);
         div.appendChild(checkBox);
