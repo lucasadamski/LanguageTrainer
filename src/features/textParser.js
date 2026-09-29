@@ -31,6 +31,7 @@ function wordDivider(word) {
 
 function parseFileContentIntoTranslations(text) {
         let lines = lineDivider(text);
+        lines = reverseLinesOfFile(lines);
         return lines.map(line => {
             let separatedLine = wordDivider(line);
             if(separatedLine === undefined) return null;
@@ -59,6 +60,9 @@ function swapWordsWithDefinitions(translations) {
     })
 }
 
+function reverseLinesOfFile(lines) {
+    return lines.reverse();
+}
 
 
 export { lineDivider, wordDivider, parseFileContentIntoTranslations, 
