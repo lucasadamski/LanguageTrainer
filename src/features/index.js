@@ -129,6 +129,12 @@ startNewGameButton.onclick = () => {
     }
 }
 
+answerData.addEventListener('keydown', (event) => {
+    if(event.key === 'Enter') {
+        answerButton.click();
+    }
+});
+
 endGameButton.onclick = () => {
     Output.hideGamePlayerScreen();
     Output.showGameOverScreen();
