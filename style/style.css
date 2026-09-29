@@ -48,4 +48,11 @@
   column-gap: 1rem;
   align-items: center;
 }
-  
+
+.stats-row span:first-child {
+  justify-self: start;
+}
+
+.stats-row span:last-child {
+  justify-self: end;
+}
