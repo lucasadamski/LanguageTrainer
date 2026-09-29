@@ -46,12 +46,9 @@ function drawFileContent(data) {
 
         const defSpan = document.createElement('span');
         defSpan.textContent = t.definition;
-        
-        const dotsSpan = document.createElement('span');
-        dotsSpan.textContent = '................................';
+
 
         text.appendChild(wordSpan);
-        text.appendChild(dotsSpan);
         text.appendChild(defSpan);
 
 
