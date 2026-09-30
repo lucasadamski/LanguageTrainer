@@ -88,6 +88,44 @@ test('parses text into translations', () => {
   expect(actualResult).toEqual(expectedResult);
 });
 
+test('parses text into translations', () => {
+  // Arange 
+  let sample = 
+  `te falta mucha para llegar a helipuerto? Casi etoy                  – Are you far from reaching the helipad?  I'm almost there
+no hace falta                                                       - it's not necessary / no need
+sacame de aqui                                                      - get me out of here
+sea como sea                                                        - no matter what
+ha levantado muchas sospechas                                       - it has raised a lot of suspicions
+ponme con Sarif. Ya!                                                - put me through to Sarif. Now!
+lo mire cuanto antes                                                - look at it as soon as possible
+no vemos mas que un bucle                                           - we see nothing but a loop
+media docena                                                        - half a dozen
+caballeros, listos para aterrizar                                   – gentlemen, ready to land
+no quiero correr riesgos                                            – I don't want to take risks
+estoy listo, genial. Pues salgamos volando                          - I'm ready. Great. Then let's fly out
+Puristas humanas, o eso dicen                                       - Human purists, or so they say
+  `;
+  let expectedResult = [
+    { word: 'te falta mucha para llegar a helipuerto? Casi etoy', definition: `Are you far from reaching the helipad?  I'm almost there` },
+    { word: 'no hace falta', definition: "it's not necessary / no need" },
+    { word: 'sacame de aqui', definition: 'get me out of here' },
+    { word: 'sea como sea', definition: 'no matter what' },
+    { word: 'ha levantado muchas sospechas', definition: 'it has raised a lot of suspicions' },
+    { word: 'ponme con Sarif. Ya!', definition: 'put me through to Sarif. Now!' },
+    { word: 'lo mire cuanto antes', definition: 'look at it as soon as possible' },
+    { word: 'no vemos mas que un bucle', definition: 'we see nothing but a loop' },
+    { word: 'media docena', definition: 'half a dozen' },
+    { word: 'caballeros, listos para aterrizar', definition: 'gentlemen, ready to land' },
+    { word: 'no quiero correr riesgos', definition: "I don't want to take risks" },
+    { word: 'estoy listo, genial. Pues salgamos volando', definition: "I'm ready. Great. Then let's fly out" },
+    { word: 'Puristas humanas, o eso dicen', definition: 'Human purists, or so they say' }
+  ].reverse();
+  // Act
+  let actualResult = TextParser.parseFileContentIntoTranslations(sample);
+  // Assert
+  expect(actualResult).toEqual(expectedResult);
+});
+
 
 test('returns only those translations that have corressponding true element in other array', () => {
   // Arange 

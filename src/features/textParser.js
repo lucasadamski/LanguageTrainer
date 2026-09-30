@@ -11,6 +11,12 @@ function wordDivider(word) {
     else if (word.includes('-')) {
         result = word.split('-');
     }
+     else if (word.includes('–')) {
+        result = word.split('–');
+    }
+     else if (word.includes('—')) {
+        result = word.split('—');
+    }
     else if (word.includes(',')) {
         result = word.split(',');
     }
