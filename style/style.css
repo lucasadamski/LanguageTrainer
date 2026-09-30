@@ -4,6 +4,12 @@
   transform: translateX(-50%);
 }
 
+.logo {
+  max-width: 500px;
+  margin: auto;
+  padding: 1rem;
+}
+
 .hidden {
     display: none;
 }
@@ -35,7 +41,7 @@
 
 
 .word-row:hover {
-  background: #410b9f;
+  background: rgba(11, 94, 215, 0.5);
 }
 
 .word-row input[type="checkbox"] {
