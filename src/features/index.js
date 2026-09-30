@@ -4,8 +4,10 @@ import * as Output from './output.js';
 import * as GamePlayer from './gamePlayer.js';
 import * as Stats from './stats.js';
 import * as MediaPlayer from './mediaPlayer.js';
+import * as DataRepository from './dataRepository.js';
 
-window.onClickUploadFile = onClickUploadFile;
+window.onClickStartTraining = onClickStartTraining;
+
 
 let wordOutput;
 let answerData = document.getElementById('answerData');
@@ -33,7 +35,7 @@ let collectionOfTranslations;
 /*************************************
  *          Entry method           ***
  ************************************/
-async function onClickUploadFile() {
+function onClickStartTraining() {
     Output.initializeDisplay(
         document.getElementById('statsOutput'),
         document.getElementById('responseOutput'),
@@ -55,7 +57,7 @@ async function onClickUploadFile() {
     Output.showSettingsScreen();
 
     // Wait for user to upload file
-    fileContent = await FileUploader.uploadFile();
+    fileContent = DataRepository.getData();
     // Parse file and write on screen
     collectionOfTranslations = TextParser.parseFileContentIntoTranslations(fileContent);
     Output.drawFileContent(collectionOfTranslations);   
