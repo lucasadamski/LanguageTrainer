@@ -242,6 +242,19 @@ test('ignore spanish letters for answers', () => {
     expect(response).toBe(true);
   });
 
+  test(`When answer contains ',', the answer is correct `, () => {
+    // Arrange
+    let testCollection = [ 
+      {word: `please, take a look`, definition: `por favor, eche un vistazo` }];
+    startNewGame(testCollection);
+    let question = getWordGame();
+    let answer = 'por favor, eche un vistazo';
 
+    // Act
+    let response = provideUserInputToGameEngine(answer);
+  
+    // Assert
+    expect(response).toBe(true);
+  });
 
 
