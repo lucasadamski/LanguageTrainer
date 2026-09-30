@@ -79,8 +79,8 @@ test('parses text into translations', () => {
   que asco                                                            - how disgusting
   `;
   let expectedResult = [
-    { word: 'hazme un favor', definition: 'do me a favour' },
-    { word: 'que asco', definition: 'how disgusting' }
+    { word: 'que asco', definition: 'how disgusting' },
+    { word: 'hazme un favor', definition: 'do me a favour' }
   ];
   // Act
   let actualResult = TextParser.parseFileContentIntoTranslations(sample);
