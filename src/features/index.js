@@ -94,6 +94,8 @@ startNewGameButton.onclick = () => {
     // Play media
     soundUrl = MediaPlayer.getSoundToPlay();
     videoUrl = MediaPlayer.getVideoToPlay();
+
+    answerData.focus();
 }
 
 /*************************************
@@ -127,6 +129,9 @@ startNewGameButton.onclick = () => {
     if(wordOutput == null) {
         endGameButton.onclick();
     }
+
+    //clear user input 
+    answerData.value = '';
 }
 
 answerData.addEventListener('keydown', (event) => {
