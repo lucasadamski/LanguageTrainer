@@ -1,3 +1,7 @@
+/**
+This is dead code, kept if in future we will need to read from file 
+ */
+
 async function uploadFile() {
     const fileInput = document.getElementById('fileInput');
     const file = fileInput.files[0];

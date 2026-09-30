@@ -1,5 +1,4 @@
 import * as TextParser from './textParser.js';
-import * as FileUploader from './fileUploader.js';
 import * as Output from './output.js';
 import * as GamePlayer from './gamePlayer.js';
 import * as Stats from './stats.js';
@@ -155,7 +154,7 @@ restartGameButton.onclick = () => {
 newGameButton.onclick = () => {
     resetUserInputData();
     resetUploadedData();
-    onClickUploadFile();
+    onClickStartTraining();
 }
 
 selectAllButton.onclick = () => {

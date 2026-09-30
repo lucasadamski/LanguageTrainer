@@ -1,27 +1,27 @@
 function getData() {
     return `
     musica de directo ->			muzyka na żywo
-    apuntar -           					celować, pokazywać, zapisywać sobie
-    guia -              					guide (książka, zawód)
-    tanto -             					so much
-    !!!  ganas -        					desire, ochota, motywacja	
+    apuntar -					celować, pokazywać, zapisywać sobie
+    guia -					guide (książka, zawód)
+    tanto -					so much
+    !!!  ganas -					desire, ochota, motywacja	
                             tengo ganas de la cerveza - mam ochotę na piwo
                             tengo ganas de .... - mam ochotę na
-    suelen -                 					usually, często
+    suelen -					usually, często
     !!! Cuánto antes mejor! -			the sooner the better
-    para cuanto? ->          				na kiedy?
-    conseguir -              					to get
-    ganga -                  					bargain (okazja)
-    dejar -                  					zostawiam (to put, to forget, to abandon)
-    enlace -                 					Link (connection, chemistry, hyperlink, marriage, roads					intersection, roads junction, liaison, the act of connection)
-    alojamiento ->           				accommodation, lodging
-    pillar -                 					to catch(grab), to capture, to surprise catch, ,								zabukować hotel
+    para cuanto? ->				na kiedy?
+    conseguir -					to get
+    ganga -					bargain (okazja)
+    dejar -					zostawiam (to put, to forget, to abandon)
+    enlace -					Link (connection, chemistry, hyperlink, marriage, roads					intersection, roads junction, liaison, the act of connection)
+    alojamiento ->				accommodation, lodging
+    pillar -					to catch(grab), to capture, to surprise catch, ,								zabukować hotel
     tomar / pillar zamiennie
-    rodeado -           					surrounded
+    rodeado -					surrounded
     tus seres queridos -			najbliżsi
-    alegre -            					wesoły
-    madrugada -         				jutro dla melanżowników. Jak zaczynasz imprezę o 22 i					już jest 2 w nocy, to nie mówisz że jest już jutro tylko madrugada.
-    seguir -            					kontynuować
+    alegre -					wesoły
+    madrugada -				jutro dla melanżowników. Jak zaczynasz imprezę o 22 i					już jest 2 w nocy, to nie mówisz że jest już jutro tylko madrugada.
+    seguir -					kontynuować
     hasta que el cuerpo
     aquante -					dopóki ciało wytrzyma
     aquante -					patience, mental endurance, physical stamina, strength
@@ -255,93 +255,93 @@ Julio 2024
 	Picazón, me pica - świąd, swędzi mnie
 
 	1		razo'nable		- reasonable
-	2		fallo     			- mistake, fault
+	2		fallo			- mistake, fault
 	3		transbordo		- background
-	4		furgoneta 		- van
-	5		borroso   			- blurred
-	6		a farola  		- street lamp
-	7		reliable  		- reliable 
+	4		furgoneta		- van
+	5		borroso			- blurred
+	6		a farola		- street lamp
+	7		reliable		- reliable 
 
-	8 		adepto      			- supporter, follower
-	9 		el aire     		- air
-	10		puesto      			- job, place
+	8		adepto			- supporter, follower
+	9		el aire		- air
+	10		puesto			- job, place
 	11		alta costura	- high fashion
-	12		agregar     		- add
-	13		puro        			- pure
-	14		conciencia  		- conscience, consciousness
+	12		agregar		- add
+	13		puro			- pure
+	14		conciencia		- conscience, consciousness
 
 September
 
-	alivio                   						- relief (a-li-wjo)			
-	borrar                   						- to delete
-	aprovechar               					- to take advantage of
-	arreglar                 					- repair
-	que tengas               					- to have a
-	desasosiego              					- unease (de-sa-so-'sje-go))
-	la clave del misterio    		- key to the mystery
-	el jeroglífico           				- hieroglyph (ˈhaɪ.rə.ɡlɪf) (he-ro-'gli-fi-ko)
-	tolerar                  						- to tolerate (to-le-'rar)
-	falso                    						- false ('fal-so)
-	fingir                   	? simular			- to pretend, to fake (fin-'hir)
-	un bocado                					- bite / mouthful
-	el fracaso               					- failure (fra-'ka-so)
-	fracasado                					- loser 
-	el éxito                 					- success ('ek-si-to)
-	ajuste                   						- setting, config (a-'hus-te)
-	cierto                   						- true ('sier-to)
-	tratar de ? intentar     		- to try (attempt), to be about, to deal with
-	intentar                 					- to try, to attempt
-	rechazar                 					- to reject
-	ya esta                  					- it's all
-	eso es todo por hoy      		- it's all for today
+	alivio						- relief (a-li-wjo)			
+	borrar						- to delete
+	aprovechar					- to take advantage of
+	arreglar					- repair
+	que tengas					- to have a
+	desasosiego					- unease (de-sa-so-'sje-go))
+	la clave del misterio		- key to the mystery
+	el jeroglífico				- hieroglyph (ˈhaɪ.rə.ɡlɪf) (he-ro-'gli-fi-ko)
+	tolerar						- to tolerate (to-le-'rar)
+	falso						- false ('fal-so)
+	fingir	? simular			- to pretend, to fake (fin-'hir)
+	un bocado					- bite / mouthful
+	el fracaso					- failure (fra-'ka-so)
+	fracasado					- loser 
+	el éxito					- success ('ek-si-to)
+	ajuste						- setting, config (a-'hus-te)
+	cierto						- true ('sier-to)
+	tratar de ? intentar		- to try (attempt), to be about, to deal with
+	intentar					- to try, to attempt
+	rechazar					- to reject
+	ya esta					- it's all
+	eso es todo por hoy		- it's all for today
 	cuentero(LAm) / mentiroso	- liar, storyteller
-	estirar                  					- to stretch
-	aun                      						- even, eg even better
+	estirar					- to stretch
+	aun						- even, eg even better
 	vaya mierda
 	palabrota					- curse word
 	jo-er, jolines
-	topico                  						- cliche
-	chulisimo               					- cool
-	chulo                   						- cool
-	pendiente               					- outstanding
-	los cálculos            				- kidney stones
-	la cirugía              					- surgery
-	casualidad              					- chance, coincidence
-	ojalá                   						- hopefully, I wish, I hope
-	intentelo               					- try it
-	detente                 					- stop it
-	salvo                   						- safe, prep: except
-	quedar                  						- to meet, to stay 
-	buena pinta             					- looks good
-	tupper                  						- food container
-	requesón                					- twaróg / curd cheese
-	curado                  						- cured (culinary)
-	la cura                 					- cure (remedy)
-	el arrecife             					- reef (a-rre-'si-fe)
-	el triángulo            				- triangle
-	el cuadrado             					- square
-	el círculo              					- circle
-	etapa                   						- period, stage, phase
-	fase                    						- phase
-	el repollo              					- kapusta
-	sostener                				- to hold (sos-te-'ner)
-	abuso                   						- abuse (a-'bu-so)
-	verbal                  						- verbal (bar-'bal)
-	así                     							- like this, this way || even if
-	broma                   						- żart
-	chiste                  						- kawał
-	bloque de endifioces    		- szereg budynku
-	cuadra                  						- blok w znaczeniu USA
-	siga recto              					- idź na przód
-	tomar la curva          				- take a road
-	regresar 2 calles       			- bo back 2 streets
+	topico						- cliche
+	chulisimo					- cool
+	chulo						- cool
+	pendiente					- outstanding
+	los cálculos				- kidney stones
+	la cirugía					- surgery
+	casualidad					- chance, coincidence
+	ojalá						- hopefully, I wish, I hope
+	intentelo					- try it
+	detente					- stop it
+	salvo						- safe, prep: except
+	quedar						- to meet, to stay 
+	buena pinta					- looks good
+	tupper						- food container
+	requesón					- twaróg / curd cheese
+	curado						- cured (culinary)
+	la cura					- cure (remedy)
+	el arrecife					- reef (a-rre-'si-fe)
+	el triángulo				- triangle
+	el cuadrado					- square
+	el círculo					- circle
+	etapa						- period, stage, phase
+	fase						- phase
+	el repollo					- kapusta
+	sostener				- to hold (sos-te-'ner)
+	abuso						- abuse (a-'bu-so)
+	verbal						- verbal (bar-'bal)
+	así							- like this, this way || even if
+	broma						- żart
+	chiste						- kawał
+	bloque de endifioces		- szereg budynku
+	cuadra						- blok w znaczeniu USA
+	siga recto					- idź na przód
+	tomar la curva				- take a road
+	regresar 2 calles			- bo back 2 streets
 	es un edificio esquinero	- building in a corner
-	esta en la esquina      			- it's in the corner
-	condimento              					- seasoning
-	tibia                   						- lukewarm
-	Tajitos de condimento   		- bouillon cube
-	Un puñado de perejil    		- handful of parsley
-	Me quedo dormir         				- I'm falling asleep	
+	esta en la esquina			- it's in the corner
+	condimento					- seasoning
+	tibia						- lukewarm
+	Tajitos de condimento		- bouillon cube
+	Un puñado de perejil		- handful of parsley
+	Me quedo dormir				- I'm falling asleep	
 
 October
 
@@ -416,36 +416,36 @@ November
 
 
 
-abanico;         			fan wachlarz
-vendas           				bandages
+abanico;			fan wachlarz
+vendas				bandages
 huellas de lobos;	footprints
-hollar;          			to thread; Tuvimos que hollar un sendero a través de la maleza para llegar al río.; We had to tread a path through the undergrowth to reach the river.
-agradezco;       			to thank, to be grateful
+hollar;			to thread; Tuvimos que hollar un sendero a través de la maleza para llegar al río.; We had to tread a path through the undergrowth to reach the river.
+agradezco;			to thank, to be grateful
 
-soberano;   			sovereign
-aldeano;    			villager
-hallazgo;   			discovery
-seta;       				mushroom
+soberano;			sovereign
+aldeano;			villager
+hallazgo;			discovery
+seta;				mushroom
 ya lo veras;		you will see
 
 que narices;		what tha hell
-lío;        				mess
-aguante;    			patience 
-aguantar;   			to bear, to tolerate
+lío;				mess
+aguante;			patience 
+aguantar;			to bear, to tolerate
 no lo aguanto - nie moge tego zniesc
 no puedo sportar - nie moge tego zniesc 
 
 
-follarme;  			fuck me
-hormigón;  			concrete
-espejismo; 			mirage (myeraż) / fatamorgana
-soler;     				used to (past), tend to (present)
+follarme;			fuck me
+hormigón;			concrete
+espejismo;			mirage (myeraż) / fatamorgana
+soler;				used to (past), tend to (present)
 de repente;			suddenly
 
-perdonar;   			to forgive 
+perdonar;			to forgive 
 tachar dias;		count the days
-tachar;     				to cross out
-la clara;   			egg white
+tachar;				to cross out
+la clara;			egg white
 estoy de acuerdo;   I agree
 
 príncipe;           prince
